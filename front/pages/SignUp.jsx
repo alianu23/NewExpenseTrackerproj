@@ -34,13 +34,13 @@ export default function Signup() {
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
         <button
-          onClick={() => router.push("/SignUpSteps")}
+          onClick={() => router.push("/sign-up-step")}
           className="btn btn-primary w-full max-w-xs text-lg text-white font-normal rounded-full"
         >
           Sign up
         </button>
         <div className="flex gap-2 mt-7">
-          <h3>Already have account?</h3>
+          <h3 className="text-[#334155]">Already have account?</h3>
           <button
             onClick={() => router.push("/LogIn")}
             className="text-[#0166FF]"

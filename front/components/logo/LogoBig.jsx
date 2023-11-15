@@ -2,7 +2,7 @@ import React from "react";
 
 const LogoBig = () => {
   return (
-    <div>
+    <div className="mt-20">
       <svg
         width="108"
         height="40"
