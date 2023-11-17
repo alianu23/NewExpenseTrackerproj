@@ -49,10 +49,10 @@
   resolved "https://registry.npmjs.org/@next/env/-/env-14.0.2.tgz"
   integrity sha512-HAW1sljizEaduEOes/m84oUqeIDAUYBR1CDwu2tobNlNDFP3cSm9d6QsOsGeNlIppU1p/p1+bWbYCbvwjFiceA==
 
-"@next/swc-darwin-x64@14.0.2":
+"@next/swc-darwin-arm64@14.0.2":
   version "14.0.2"
-  resolved "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-14.0.2.tgz"
-  integrity sha512-zRCAO0d2hW6gBEa4wJaLn+gY8qtIqD3gYd9NjruuN98OCI6YyelmhWVVLlREjS7RYrm9OUQIp/iVJFeB6kP1hg==
+  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.0.2.tgz"
+  integrity sha512-i+jQY0fOb8L5gvGvojWyZMfQoQtDVB2kYe7fufOEiST6sicvzI2W5/EXo4lX5bLUjapHKe+nFxuVv7BA+Pd7LQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -170,6 +170,11 @@ chart.js@^4.4.0:
   integrity sha512-vQEj6d+z0dcsKLlQvbKIMYFHd3t8W/7L2vfJIbYcfyPcRx92CsHqECpueN8qVGNlKyDcr5wBrYAYKnfu/9Q1hQ==
   dependencies:
     "@kurkle/color" "^0.3.0"
+
+chartjs-2@^0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.npmjs.org/chartjs-2/-/chartjs-2-0.0.1-security.tgz"
+  integrity sha512-42hSSpwvxUZl36rY2KRlsxSozxik0gnvBs6cDSLlzncuMfEcPvG59drLG0qlGJ8AU0Wop83oh6srEFeOjvKwWQ==
 
 chokidar@^3.5.3:
   version "3.5.3"
