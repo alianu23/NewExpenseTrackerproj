@@ -1,11 +1,14 @@
-import { EyeSvg } from "@/components/iconsvg";
+import { Arrow, EyeSvg } from "@/components/iconsvg";
 import React from "react";
 
-const RecordCategory = () => {
+const RecordCategory = ({ data }) => {
   return (
-    <div>
-      <EyeSvg />
-      <h4>Food & Drinks</h4>
+    <div className="flex my-3 items-center justify-between">
+      <div className="flex items-center gap-3">
+        <EyeSvg />
+        <h2>{data.name}</h2>
+      </div>
+      <Arrow />
     </div>
   );
 };

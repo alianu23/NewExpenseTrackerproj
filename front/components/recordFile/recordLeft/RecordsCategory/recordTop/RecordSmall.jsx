@@ -1,10 +1,11 @@
 import React from "react";
-
-const RecordSmall = () => {
+import { array2 } from "@/components/Data";
+import Checkbox from "./Checkbox";
+const RecordSmall = ({ data }) => {
   return (
     <div>
-      <h1>Records</h1>
-      <button className="btn bg-[#0166FF] text-white rounded-full">
+      <h1 className="mb-8 font-semibold text-3xl">Records</h1>
+      <button className="btn bg-[#0166FF] w-full font-normal mb-4 text-white rounded-full">
         <svg
           width="16"
           height="16"
@@ -17,27 +18,18 @@ const RecordSmall = () => {
             fill="white"
           />
         </svg>
-        Record
+        Add
       </button>
       <input
         type="text"
         placeholder="Search"
         className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
       />
-      <div>
-        <h1>Types</h1>
-        <div className="flex gap-2">
-          <input type="checkbox" checked="checked" className="checkbox" />
-          <p>All</p>
-        </div>
-        <div className="flex gap-2">
-          <input type="checkbox" checked="checked" className="checkbox" />
-          <p>Income</p>
-        </div>
-        <div className="flex gap-2">
-          <input type="checkbox" checked="checked" className="checkbox" />
-          <p>Expense</p>
-        </div>
+      <div className="my-5">
+        <h1 className="font-semibold text-slate-700">Types</h1>
+        {array2.map((el) => (
+          <Checkbox data={el} key={el.id} />
+        ))}
       </div>
     </div>
   );
