@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "@/components/header";
-import RecordInfo from "@/components/recordFile/recordLeft/RecordInfo";
+import RecordInfo from "@/components/recordFile/RecordInfo";
 
 const Records = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
-import RecordSmall from "./RecordsCategory/recordTop/RecordSmall";
-import RecordBig from "./RecordsCategory/RecordBig";
-import Range from "./RecordsCategory/recordBottom/Range";
+import RecordSmall from "./recordLeft/RecordsCategory/recordTop/RecordSmall";
+import RecordBig from "./recordLeft/RecordsCategory/RecordBig";
+import Range from "./recordLeft/RecordsCategory/recordBottom/Range";
 
 const RecordInfo = () => {
   return (
