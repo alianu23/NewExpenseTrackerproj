@@ -1,5 +1,4 @@
 import React from "react";
-import { DashArrowAdd } from "../../iconsvg";
 
 const CategoryForm = ({ open, closeForm }) => {
   return (
