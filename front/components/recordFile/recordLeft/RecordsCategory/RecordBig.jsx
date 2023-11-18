@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import RecordCategory from "./RecordCategory";
 import { array } from "@/components/Data";
+import CategoryForm from "@/components/Form/addCategoryForm";
 
 const RecordBig = () => {
+  const [open, setOpen] = useState(false);
+
+  const closeForm = () => {
+    console.log("Formee");
+    setOpen(false);
+  };
+
   return (
     <div>
       <div className="flex justify-between">
@@ -12,7 +20,12 @@ const RecordBig = () => {
       {array.map((el) => (
         <RecordCategory data={el} key={el.id} />
       ))}
-      <button className="btn btn-active bg-white border-white text-black w-full  rounded-full">
+      <button
+        onClick={() => {
+          setOpen(true);
+        }}
+        className="btn btn-active bg-white border-white text-black w-full  rounded-full"
+      >
         <svg
           width="16"
           height="16"
@@ -27,6 +40,7 @@ const RecordBig = () => {
         </svg>
         Add Category
       </button>
+      {open && <CategoryForm open={open} closeForm={closeForm} />}
     </div>
   );
 };

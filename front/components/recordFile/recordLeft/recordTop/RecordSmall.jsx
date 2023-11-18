@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { array2 } from "@/components/Data";
 import Checkbox from "./Checkbox";
+import RecordForm from "@/components/Form/addRecordForm";
+
 const RecordSmall = ({ data }) => {
+  const [open, setOpen] = useState(false);
+
+  const closeForm = () => {
+    console.log("Formee");
+    setOpen(false);
+  };
+
   return (
     <div>
       <h1 className="mb-8 font-semibold text-3xl">Records</h1>
-      <button className="btn bg-[#0166FF] w-full font-normal mb-4 text-white rounded-full">
+      <button
+        onClick={() => {
+          setOpen(true);
+        }}
+        className="btn bg-[#0166FF] w-full font-normal mb-4 text-white rounded-full"
+      >
         <svg
           width="16"
           height="16"
@@ -20,6 +34,7 @@ const RecordSmall = ({ data }) => {
         </svg>
         Add
       </button>
+      {open && <RecordForm open={open} closeForm={closeForm} />}
       <input
         type="text"
         placeholder="Search"
