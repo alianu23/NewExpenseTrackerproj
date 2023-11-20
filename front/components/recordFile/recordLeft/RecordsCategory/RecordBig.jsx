@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RecordCategory from "./RecordCategory";
-import { array } from "@/components/Data";
+import { array } from "@/components/Data/index.jsx";
 import CategoryForm from "@/components/Form/addCategoryForm";
 
 const RecordBig = () => {

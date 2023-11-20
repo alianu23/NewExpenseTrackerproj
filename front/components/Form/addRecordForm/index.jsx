@@ -8,7 +8,7 @@ const RecordForm = ({ open, closeForm }) => {
       <div className="modal-box flex flex-col max-w-3xl shadow-2xl">
         <div className="flex justify-between border-b-2 pb-3">
           <h1>Add Record</h1>
-          <button>X</button>
+          <button onClick={closeForm}>X</button>
         </div>
         <div className="flex">
           <div className="flex-1">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { array2 } from "@/components/Data";
+import { array2 } from "@/components/Data/index.jsx";
 import Checkbox from "./Checkbox";
 import RecordForm from "@/components/Form/addRecordForm";
 

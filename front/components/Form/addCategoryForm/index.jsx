@@ -6,7 +6,7 @@ const CategoryForm = ({ open, closeForm }) => {
       <div className="modal-box flex flex-col max-w-lg shadow-2xl">
         <div className="flex justify-between border-b-2 pb-3">
           <h1 className="font-semibold">Add Category</h1>
-          <button>X</button>
+          <button onClick={closeForm}>X</button>
         </div>
         <div className="flex my-5">
           <select className="select select-bordered bg-[#F9FAFB]">

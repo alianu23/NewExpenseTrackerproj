@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import Logo from "@/components/logo/Logo";
 
 export default function LogIn() {
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <div className="flex w-screen h-screen">
@@ -22,7 +22,7 @@ export default function LogIn() {
           placeholder="Password"
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
-        <button
+        {/* <button
           onClick={() => router.push("/")}
           className="btn btn-primary w-full max-w-xs text-lg text-white font-normal rounded-full"
         >
@@ -36,7 +36,7 @@ export default function LogIn() {
           >
             Sign up
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="flex-1 bg-[#0166FF] "></div>
     </div>

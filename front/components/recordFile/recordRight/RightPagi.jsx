@@ -7,7 +7,7 @@ const RightPagiTop = () => {
       <div className=" flex justify-between mb-5">
         <div>
           <button className="btn bg-[#E5E7EB]">{"<"}</button>
-          <button className=" mx-3">Page 22</button>
+          <button className=" mx-3">Last 30 days</button>
           <button className="btn bg-[#E5E7EB]">{">"}</button>
         </div>
         <div className="flex gap-10 rounded-md border-[1px] px-3 items-center bg-[#F9FAFB]">

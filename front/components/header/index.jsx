@@ -13,7 +13,6 @@ const Header = () => {
   const [open, setOpen] = useState(false);
 
   const closeForm = () => {
-    console.log("Formee");
     setOpen(false);
   };
   const isActive = usePathname();
