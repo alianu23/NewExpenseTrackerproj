@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@/components/header";
 import TopInfo from "@/components/DashboardComp/TopInfo";
-import MiddleInfo from "@/components/DashboardComp/MiddleInfo";
+import MiddleInfo from "@/components/DashboardComp/MiddleChartPart/MiddleInfo";
 import BottomInfo from "@/components/DashboardComp/bottom/BottomInfo";
 
 export default function Home() {

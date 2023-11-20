@@ -11,7 +11,8 @@ import {
   Title,
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
-import { data } from "../Data/index.jsx";
+import { data, ItemDataMiddle } from "../../Data/index.jsx";
+import MiddleChartDoughnut from "./MiddleChartDoughnut.jsx";
 
 ChartJS.register(
   ArcElement,
@@ -54,20 +55,27 @@ const MiddleInfo = () => {
   return (
     <div className="flex my-7 w-full">
       <div className="flex-1 bg-white p-7 mr-5">
-        <h1 className="border-b-2 pb-3">Income - Expense</h1>
+        <h1 className="border-b-2 pb-3 font-semibold">Income - Expense</h1>
         <Bar options={options} data={datas} />
       </div>
 
       <div className="flex-1 bg-white ">
-        <h1 className="border-b-2 pb-3 p-7">Income - Expense</h1>
-        <div className="w-64 h-64 p-3 flex items-center">
+        <div className="flex border-b-2  pb-3 p-7 items-center justify-between">
+          <h1 className="font-semibold">Income - Expense</h1>
+          <h3>Jun 1 - Nov 30</h3>
+        </div>
+
+        <div className="w-64 h-64 p-3 flex mt-7 items-center">
           <Doughnut data={data} options={options} />
           <div>
-            <p>Bills</p>
-            <p>Food</p>
-            <p>Shopping</p>
-            <p>Insurance</p>
-            <p>Clothing</p>
+            {ItemDataMiddle.map((el) => (
+              <MiddleChartDoughnut
+                name={el.name}
+                price={el.price}
+                percentage={el.percentage}
+                icon={el.icon}
+              />
+            ))}
           </div>
         </div>
       </div>

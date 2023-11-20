@@ -1,9 +1,9 @@
 import React from "react";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Logo from "@/components/logo/Logo";
 
 export default function Signup() {
-  // const router = useRouter();
+  const router = useRouter();
 
   return (
     <div className="flex w-screen h-screen">
@@ -33,13 +33,13 @@ export default function Signup() {
           placeholder="Re-password"
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
-        {/* <button
+        <button
           onClick={() => router.push("/sign-up-step")}
           className="btn btn-primary w-full max-w-xs text-lg text-white font-normal rounded-full"
         >
           Sign up
-        </button> */}
-        {/* <div className="flex gap-2 mt-7">
+        </button>
+        <div className="flex gap-2 mt-7">
           <h3 className="text-[#334155]">Already have account?</h3>
           <button
             onClick={() => router.push("/LogIn")}
@@ -47,7 +47,7 @@ export default function Signup() {
           >
             Log in
           </button>
-        </div> */}
+        </div>
       </div>
       <div className="flex-1 bg-[#0166FF] "></div>
     </div>

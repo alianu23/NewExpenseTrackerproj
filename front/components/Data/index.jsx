@@ -32,3 +32,97 @@ export const data = {
     },
   ],
 };
+
+export const ItemDataMiddle = [
+  {
+    name: "Bills",
+    price: "5'000'000₮",
+    percentage: "15,50%",
+  },
+  {
+    name: "Food",
+    price: "5'000'000₮",
+    percentage: "15,50%",
+  },
+  {
+    name: "Shopping",
+    price: "5'000'000₮",
+    percentage: "15,50%",
+  },
+  {
+    name: "Insurance",
+    price: "5'000'000₮",
+    percentage: "15,50%",
+  },
+  {
+    name: "Clothing",
+    price: "5'000'000₮",
+    percentage: "15,50%",
+  },
+];
+
+export const DotIcon = () => {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="6" cy="6" r="6" fill="#1C64F2" />
+    </svg>
+  );
+};
+export const DotIconRed = () => {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="6" cy="6" r="6" fill="#E74694" />
+    </svg>
+  );
+};
+export const DotIconYellow = () => {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="6" cy="6" r="6" fill="#FDBA8C" />
+    </svg>
+  );
+};
+export const DotIconSky = () => {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="6" cy="6" r="6" fill="#16BDCA" />
+    </svg>
+  );
+};
+export const DotIconOrange = () => {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="6" cy="6" r="6" fill="#F2901C" />
+    </svg>
+  );
+};
