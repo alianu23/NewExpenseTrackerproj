@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { array2 } from "@/components/Data/index.jsx";
+import { array2 } from "@/components/data/index.jsx";
 import Checkbox from "./Checkbox";
-import RecordForm from "@/components/Form/addRecordForm";
+import RecordForm from "@/components/form/addRecordForm";
 
 const RecordSmall = ({ data }) => {
   const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ const RecordSmall = ({ data }) => {
       <input
         type="text"
         placeholder="Search"
-        className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
+        className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full"
       />
       <div className="my-5">
         <h1 className="font-semibold text-slate-700">Types</h1>

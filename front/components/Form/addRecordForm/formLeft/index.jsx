@@ -4,10 +4,10 @@ const FormLeft = ({ closeForm }) => {
   return (
     <div>
       <div role="tablist" className="tabs my-3 tabs-boxed">
-        <a role="tab" className="tab tab-active">
+        <a role="tab" className="tab ">
           Expense
         </a>
-        <a role="tab" className="tab ">
+        <a role="tab" className="tab tab-active">
           Income
         </a>
       </div>
@@ -51,7 +51,7 @@ const FormLeft = ({ closeForm }) => {
       </form>
       <button
         onClick={closeForm}
-        className="btn bg-[#0166FF] w-full font-normal my-4 text-white rounded-full"
+        className="btn bg-[#0166FF] modal-backdrop w-full font-normal my-4 text-white rounded-full"
       >
         Add Record
       </button>

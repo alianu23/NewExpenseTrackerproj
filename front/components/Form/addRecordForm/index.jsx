@@ -5,7 +5,7 @@ import FormRight from "./formRight";
 const RecordForm = ({ open, closeForm }) => {
   return (
     <dialog className={`modal`} open={open}>
-      <div className="modal-box flex flex-col max-w-3xl shadow-2xl">
+      <div className="modal-box  flex flex-col max-w-3xl shadow-2xl">
         <div className="flex justify-between border-b-2 pb-3">
           <h1>Add Record</h1>
           <button onClick={closeForm}>X</button>

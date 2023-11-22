@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RecordCategory from "./RecordCategory";
-import { array } from "@/components/Data/index.jsx";
-import CategoryForm from "@/components/Form/addCategoryForm";
+import { array } from "@/components/data/index.jsx";
+import CategoryForm from "@/components/form/addCategoryForm";
 
 const RecordBig = () => {
   const [open, setOpen] = useState(false);

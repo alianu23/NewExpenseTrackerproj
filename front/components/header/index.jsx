@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { DefLogo } from "../logo/Logo";
-import RecordForm from "../Form/addRecordForm";
+import RecordForm from "../form/addRecordForm";
 
 const navigations = [
   { name: "Dashboard", path: "/" },
-  { name: "Records", path: "/Records" },
+  { name: "Records", path: "/records" },
 ];
 
 const Header = () => {

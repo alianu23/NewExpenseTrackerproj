@@ -1,5 +1,8 @@
 import React from "react";
 
+import AddIcon from "./AddIcon";
+import { DotIcon } from "@/components/data";
+
 const CategoryForm = ({ open, closeForm }) => {
   return (
     <dialog className={`modal`} open={open}>
@@ -8,14 +11,8 @@ const CategoryForm = ({ open, closeForm }) => {
           <h1 className="font-semibold">Add Category</h1>
           <button onClick={closeForm}>X</button>
         </div>
-        <div className="flex my-5">
-          <select className="select select-bordered bg-[#F9FAFB]">
-            <option disabled selected>
-              home
-            </option>
-            <option>Visa</option>
-            <option>QPay</option>
-          </select>
+        <div className="flex items-center my-5">
+          <AddIcon />
           <select className="select select-bordered ml-4 bg-[#F9FAFB] w-full ">
             <option disabled selected>
               Name
@@ -26,7 +23,7 @@ const CategoryForm = ({ open, closeForm }) => {
         </div>
         <button
           onClick={closeForm}
-          className="btn bg-[#16A34A] w-full font-normal my-4 text-white rounded-full"
+          className="btn bg-[#16A34A] modal-backdrop w-full font-normal my-4 text-white rounded-full"
         >
           Add
         </button>

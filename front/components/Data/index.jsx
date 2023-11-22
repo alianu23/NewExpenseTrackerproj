@@ -64,8 +64,8 @@ export const ItemDataMiddle = [
 export const DotIcon = () => {
   return (
     <svg
-      width="12"
-      height="12"
+      width="24"
+      height="24"
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -77,8 +77,8 @@ export const DotIcon = () => {
 export const DotIconRed = () => {
   return (
     <svg
-      width="12"
-      height="12"
+      width="24"
+      height="24"
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +90,8 @@ export const DotIconRed = () => {
 export const DotIconYellow = () => {
   return (
     <svg
-      width="12"
-      height="12"
+      width="24"
+      height="24"
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -103,8 +103,8 @@ export const DotIconYellow = () => {
 export const DotIconSky = () => {
   return (
     <svg
-      width="12"
-      height="12"
+      width="24"
+      height="24"
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -116,8 +116,8 @@ export const DotIconSky = () => {
 export const DotIconOrange = () => {
   return (
     <svg
-      width="12"
-      height="12"
+      width="24"
+      height="24"
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

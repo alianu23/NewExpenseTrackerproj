@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "@/components/header";
-import TopInfo from "@/components/DashboardComp/TopInfo";
-import MiddleInfo from "@/components/DashboardComp/MiddleChartPart/MiddleInfo";
-import BottomInfo from "@/components/DashboardComp/bottom/BottomInfo";
+import TopInfo from "@/components/dashboardComp/TopInfo";
+import MiddleInfo from "@/components/dashboardComp/middleChartPart/MiddleInfo";
+import BottomInfo from "@/components/dashboardComp/bottom/BottomInfo";
 
 export default function Home() {
   return (

@@ -1,40 +1,51 @@
+import React from "react";
 import { useRouter } from "next/router";
 import Logo from "@/components/logo/Logo";
 
-export default function LogIn() {
+export default function Signup() {
   const router = useRouter();
 
   return (
     <div className="flex w-screen h-screen">
       <div className="flex-1 flex flex-col items-center justify-center bg-white gap-3">
         <Logo />
-        <h3 className="font-semibold text-xl ">Welcome Back</h3>
+        <h3 className="font-semibold text-xl ">Create Geld account</h3>
         <p className="text-[#334155]">
-          Welcome back, Please enter your details
+          Sign up below to create your wallet account
         </p>
         <input
           type="text"
-          placeholder="Email"
+          placeholder="Name"
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full mt-6 max-w-xs"
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
         <input
           type="text"
           placeholder="Password"
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
+        <input
+          type="text"
+          placeholder="Re-password"
+          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
+        />
         <button
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/sign-up-step")}
           className="btn btn-primary w-full max-w-xs text-lg text-white font-normal rounded-full"
         >
-          Log in
+          Sign up
         </button>
         <div className="flex gap-2 mt-7">
-          <h3 className="text-[#334155]">Don't have an account?</h3>
+          <h3 className="text-[#334155]">Already have account?</h3>
           <button
+            onClick={() => router.push("/log-in")}
             className="text-[#0166FF]"
-            onClick={() => router.push("/SignUp")}
           >
-            Sign up
+            Log in
           </button>
         </div>
       </div>

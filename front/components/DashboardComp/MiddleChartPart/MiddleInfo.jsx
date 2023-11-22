@@ -11,7 +11,7 @@ import {
   Title,
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
-import { data, ItemDataMiddle } from "../../Data/index.jsx";
+import { data, ItemDataMiddle } from "../../data/index.jsx";
 import MiddleChartDoughnut from "./MiddleChartDoughnut.jsx";
 
 ChartJS.register(
@@ -65,8 +65,11 @@ const MiddleInfo = () => {
           <h3>Jun 1 - Nov 30</h3>
         </div>
 
-        <div className="w-64 h-64 p-3 flex mt-7 items-center">
-          <Doughnut data={data} options={options} />
+        <div className="p-3 flex mt-9 items-center">
+          <div className="w-56 h-56">
+            <Doughnut data={data} options={options} />
+          </div>
+
           <div>
             {ItemDataMiddle.map((el) => (
               <MiddleChartDoughnut
