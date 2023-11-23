@@ -15,7 +15,7 @@ const TopInfo = () => {
         <div>
           <span className="font-bold lg:text-4xl md:text-2xl text-xl">
             {" "}
-            1,200,000₮
+            120,000,000₮
           </span>
           <p className="text-xs my-2 lg:text-base md:my-3 lg:my-4 text-slate-500">
             Your Income Amount
@@ -36,7 +36,7 @@ const TopInfo = () => {
         <div>
           <span className="font-bold lg:text-4xl md:text-2xl text-xl">
             {" "}
-            -1,200,000₮
+            -30,500,000₮
           </span>
           <p className="text-xs lg:text-base lg:my-4 md:my-3 my-2 text-slate-500">
             Your Expense Amount

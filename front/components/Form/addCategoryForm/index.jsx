@@ -1,7 +1,6 @@
 import React from "react";
 
 import AddIcon from "./AddIcon";
-import { DotIcon } from "@/components/data";
 
 const CategoryForm = ({ open, closeForm }) => {
   return (

@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const FormLeft = ({ closeForm }) => {
+  const [jump, setJump] = useState(1);
+
+  const next = () => {
+    setJump(jump + 1);
+  };
   return (
     <div>
       <div role="tablist" className="tabs my-3 tabs-boxed">
