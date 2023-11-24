@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { Slider } from "@mui/material";
+
 const Range = () => {
   const [rangeChange, setRangeChange] = useState();
   const [minRange, setMinRange] = useState();
@@ -32,6 +34,11 @@ const Range = () => {
         className="range range-primary range-xs"
         step="25"
       />
+      {/* <Slider
+        getAriaLabel={() => "Temperature range"}
+        value={rangeChange}
+        valueLabelDisplay="auto"
+      /> */}
       <div className="w-full flex justify-between text-lg px-2">
         <span>{minRange}</span>
         <span>{rangeChange}</span>

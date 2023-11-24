@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.18",
     "@mui/x-charts": "^6.18.1",
     "chart.js": "^4.4.0",
     "chartjs-2": "^0.0.1-security",
