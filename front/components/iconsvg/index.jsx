@@ -141,7 +141,7 @@ export const Arrow = () => {
 export const DashArrow = () => {
   return (
     <svg
-      className="mr-3"
+      className=""
       width="8"
       height="5"
       viewBox="0 0 8 5"

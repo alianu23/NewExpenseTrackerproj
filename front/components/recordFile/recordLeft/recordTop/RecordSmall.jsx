@@ -3,7 +3,7 @@ import { array2 } from "@/components/data/index.jsx";
 import Checkbox from "./Checkbox";
 import RecordForm from "@/components/form/addRecordForm";
 
-const RecordSmall = ({ data }) => {
+const RecordSmall = () => {
   const [open, setOpen] = useState(false);
 
   const closeForm = () => {

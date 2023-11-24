@@ -12,14 +12,14 @@ const Range = () => {
       <h1 className="font-semibold my-5">Amount Range</h1>
       <div className="flex gap-2 mb-5">
         <input
-          type="text"
+          type="number"
           onChange={(e) => setMinRange(e.target.value)}
           value={minRange}
           className="input input-bordered border-slate-300 py-3 px-2 font-normal text-lg flex-1"
           placeholder="min val"
         />
         <input
-          type="text"
+          type="number"
           onChange={(e) => setRangeChange(e.target.value)}
           value={rangeChange}
           className="input input-bordered border-slate-300 py-3 px-2  font-normal text-lg flex-1"
