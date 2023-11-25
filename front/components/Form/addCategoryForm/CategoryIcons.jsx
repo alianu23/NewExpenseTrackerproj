@@ -34,43 +34,73 @@ import {
 } from "react-icons/pi";
 import { RiImageFill } from "react-icons/ri";
 
-const CategoryIcons = ({ IsColor, setIsColor }) => {
+const CategoryIcons = ({ IsColor, ChangeColor, setIsColor, setColored }) => {
   return (
     <div>
       <div className="grid grid-cols-6 w-full border-b-2  ">
         <li className="inline-block">
           <span>
-            <MdHomeFilled size={30} color={IsColor} />
+            <MdHomeFilled
+              onChange={(e) => setColored(e.target.value)}
+              onClick={() => ChangeColor()}
+              size={30}
+              color={IsColor}
+            />
           </span>
         </li>
         <li className="inline-block">
           <span>
-            <FaHome size={30} color={IsColor} />
+            <FaHome
+              onChange={(e) => setColored(e.target.value)}
+              onClick={() => ChangeColor()}
+              size={30}
+              color={IsColor}
+            />
           </span>
         </li>
         <li className="inline-block">
           <span>
-            <FaIdBadge size={30} color={IsColor} />
+            <FaIdBadge
+              onChange={(e) => setColored(e.target.value)}
+              size={30}
+              color={IsColor}
+            />
           </span>
         </li>
         <li className="inline-block">
           <span>
-            <MdBadge size={30} color={IsColor} />
+            <MdBadge
+              onChange={(e) => setColored(e.target.value)}
+              size={30}
+              color={IsColor}
+            />
           </span>
         </li>
         <li className="inline-block">
           <span>
-            <MdChildFriendly size={30} color={IsColor} />
+            <MdChildFriendly
+              onChange={(e) => setColored(e.target.value)}
+              size={30}
+              color={IsColor}
+            />
           </span>
         </li>
         <li className="inline-block">
           <span>
-            <BsIntersect size={30} color={IsColor} />
+            <BsIntersect
+              onChange={(e) => setColored(e.target.value)}
+              size={30}
+              color={IsColor}
+            />
           </span>
         </li>
         <li className="inline-block">
           <span>
-            <RiImageFill size={30} color={IsColor} />
+            <RiImageFill
+              onChange={(e) => setColored(e.target.value)}
+              size={30}
+              color={IsColor}
+            />
           </span>
         </li>
         <li className="inline-block">

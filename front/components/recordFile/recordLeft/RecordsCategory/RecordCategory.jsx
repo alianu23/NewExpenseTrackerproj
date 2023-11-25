@@ -6,7 +6,7 @@ const RecordCategory = ({ data }) => {
     <div className="flex my-3 items-center justify-between">
       <div className="flex items-center gap-3">
         <EyeSvg />
-        <h2>{data.name}</h2>
+        <h2>{data}</h2>
       </div>
       <Arrow />
     </div>

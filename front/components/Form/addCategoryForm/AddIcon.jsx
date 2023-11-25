@@ -6,6 +6,14 @@ import { MdHomeFilled } from "react-icons/md";
 
 const AddIcon = () => {
   const [IsColor, setIsColor] = useState("Black");
+  const [colored, setColored] = useState();
+
+  const ChangeColor = () => {
+    const changeIcon = [...IsColor, colored];
+    console.log(changeIcon);
+    setIsColor(changeIcon);
+    console.log("changed");
+  };
 
   return (
     <div>
@@ -13,12 +21,18 @@ const AddIcon = () => {
       <details className="dropdown">
         <summary className="m-1 btn">
           <div className="flex items-center gap-7">
-            <MdHomeFilled size={24} />
+            {() => ChangeColor()}
             <DashArrow size={15} />
           </div>
         </summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-96">
-          <CategoryIcons IsColor={IsColor} setIsColor={setIsColor} />
+          <CategoryIcons
+            colored={colored}
+            setColored={setColored}
+            IsColor={IsColor}
+            setIsColor={setIsColor}
+            ChangeColor={ChangeColor}
+          />
         </ul>
       </details>
     </div>

@@ -15,13 +15,13 @@ const FormLeft = () => {
 
   return (
     <div>
-      <div role="tablist" className="tabs my-3 tabs-boxed">
-        <a role="tab" className="tab ">
-          Expense
-        </a>
-        <a role="tab" className="tab tab-active">
+      <div className="flex my-3 rounded-full bg-[#F3F4F6] w-full gap-5 ">
+        <button className=" flex-1 btn-md rounded-3xl border-none bg-[#F3F4F6] focus:bg-[#0166FF] focus:text-white">
+          Expense{" "}
+        </button>
+        <button className="flex-1 btn-md rounded-3xl border-none bg-[#F3F4F6] focus:bg-[#0166FF] focus:text-white">
           Income
-        </a>
+        </button>
       </div>
       <form>
         <div className="border-[1px] p-3 bg-[#F9FAFB] rounded-lg">

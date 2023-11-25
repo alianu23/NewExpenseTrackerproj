@@ -43,7 +43,7 @@ const RecordSmall = () => {
       <div className="my-5">
         <h1 className="font-semibold text-slate-700">Types</h1>
         {array2.map((el) => (
-          <Checkbox data={el} key={el.id} />
+          <Checkbox name={el.name} key={el.id} />
         ))}
       </div>
     </div>

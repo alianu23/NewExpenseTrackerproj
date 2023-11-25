@@ -18,7 +18,7 @@ const RecordBig = () => {
         <h1 className="text-slate-400">Clear</h1>
       </div>
       {array.map((el) => (
-        <RecordCategory data={el} key={el.id} />
+        <RecordCategory data={el.name} key={el.id} />
       ))}
       <button
         onClick={() => {
