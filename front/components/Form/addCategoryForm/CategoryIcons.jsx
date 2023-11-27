@@ -34,7 +34,7 @@ import {
 } from "react-icons/pi";
 import { RiImageFill } from "react-icons/ri";
 
-const CategoryIcons = ({ IsColor, ChangeColor, setIsColor, setColored }) => {
+const CategoryIcons = ({ IsColor, colored, setIsColor, setColored }) => {
   return (
     <div>
       <div className="grid grid-cols-6 w-full border-b-2  ">
@@ -42,7 +42,7 @@ const CategoryIcons = ({ IsColor, ChangeColor, setIsColor, setColored }) => {
           <span>
             <MdHomeFilled
               onChange={(e) => setColored(e.target.value)}
-              onClick={() => ChangeColor()}
+              values={colored}
               size={30}
               color={IsColor}
             />
@@ -52,7 +52,7 @@ const CategoryIcons = ({ IsColor, ChangeColor, setIsColor, setColored }) => {
           <span>
             <FaHome
               onChange={(e) => setColored(e.target.value)}
-              onClick={() => ChangeColor()}
+              values={colored}
               size={30}
               color={IsColor}
             />

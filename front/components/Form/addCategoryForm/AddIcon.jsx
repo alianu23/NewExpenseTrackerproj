@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import CategoryIcons from "./CategoryIcons";
 import { DashArrow } from "@/components/iconsvg";
@@ -6,22 +6,16 @@ import { MdHomeFilled } from "react-icons/md";
 
 const AddIcon = () => {
   const [IsColor, setIsColor] = useState("Black");
-  const [colored, setColored] = useState();
+  const [colored, setColored] = useState(<MdHomeFilled size={30} />);
 
-  const ChangeColor = () => {
-    const changeIcon = [...IsColor, colored];
-    console.log(changeIcon);
-    setIsColor(changeIcon);
-    console.log("changed");
-  };
+  useEffect(() => {}, [colored]);
 
   return (
     <div>
-      {" "}
       <details className="dropdown">
         <summary className="m-1 btn">
           <div className="flex items-center gap-7">
-            {() => ChangeColor()}
+            <span> {colored} </span>
             <DashArrow size={15} />
           </div>
         </summary>
@@ -31,7 +25,6 @@ const AddIcon = () => {
             setColored={setColored}
             IsColor={IsColor}
             setIsColor={setIsColor}
-            ChangeColor={ChangeColor}
           />
         </ul>
       </details>
