@@ -77,6 +77,7 @@ const MiddleInfo = () => {
                 price={el.price}
                 percentage={el.percentage}
                 icon={el.icon}
+                key={el.id}
               />
             ))}
           </div>
