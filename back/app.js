@@ -12,8 +12,8 @@ const app = express();
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "images/")));
+
 app.use("/auth", authRoutes);
-app.use("/", authRoutes);
 app.use("/api/records", categoryRoutes);
 app.use("/api/image", imgRoutes);
 
