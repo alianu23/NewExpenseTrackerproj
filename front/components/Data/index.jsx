@@ -32,31 +32,3 @@ export const data = {
     },
   ],
 };
-
-export const ItemDataMiddle = [
-  {
-    name: "Bills",
-    price: "5'000'000₮",
-    percentage: "15,50%",
-  },
-  {
-    name: "Food",
-    price: "5'000'000₮",
-    percentage: "15,50%",
-  },
-  {
-    name: "Shopping",
-    price: "5'000'000₮",
-    percentage: "15,50%",
-  },
-  {
-    name: "Insurance",
-    price: "5'000'000₮",
-    percentage: "15,50%",
-  },
-  {
-    name: "Clothing",
-    price: "5'000'000₮",
-    percentage: "15,50%",
-  },
-];

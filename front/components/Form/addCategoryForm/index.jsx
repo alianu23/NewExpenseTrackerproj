@@ -12,13 +12,9 @@ const CategoryForm = ({ open, closeForm }) => {
         </div>
         <div className="flex items-center my-5">
           <AddIcon />
-          <select className="select select-bordered ml-4 bg-[#F9FAFB] w-full ">
-            <option disabled selected>
-              Name
-            </option>
-            <option>Visa</option>
-            <option>QPay</option>
-          </select>
+          <div className="py-3 px-3 ml-4 bg-base-200 rounded-lg hover:border-purple-500 hover:border-2 w-full ">
+            <input type="text" className="bg-base-200 w-full " />
+          </div>
         </div>
         <form className="modal-backdrop">
           <button

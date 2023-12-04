@@ -78,7 +78,7 @@ const FormLeft = () => {
       </form>
       <button
         onClick={closeForm}
-        className="btn modal-backdrop bg-[#0166FF] w-full font-normal my-4 text-white rounded-full"
+        className="btn modal-backdrop bg-[#0166FF] hover:bg-blue-800 w-full font-normal my-4 text-white rounded-full"
       >
         Add Record
       </button>

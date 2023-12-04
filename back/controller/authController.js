@@ -1,4 +1,5 @@
 const { sql } = require("../config/pgDb");
+const bcrypt = require("bcrypt");
 
 const signup = async (req, res) => {
   try {
