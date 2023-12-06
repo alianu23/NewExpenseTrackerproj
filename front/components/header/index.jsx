@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { DefLogo } from "../logo/Logo";
 import RecordForm from "../form/addRecordForm";
+import Profile from "./navbarMenu";
 
 const navigations = [
   { name: "Dashboard", path: "/" },
@@ -15,6 +16,7 @@ const Header = () => {
   const closeForm = () => {
     setOpen(false);
   };
+
   const isActive = usePathname();
 
   return (
@@ -36,7 +38,7 @@ const Header = () => {
             </Link>
           ))}
         </div>
-        <div className="flex-0.5 flex gap-2">
+        <div className="flex-0.5 flex gap-3">
           <button
             onClick={() => {
               setOpen(true);
@@ -58,7 +60,7 @@ const Header = () => {
             Record
           </button>
           {open && <RecordForm open={open} closeForm={closeForm} />}
-          <img className="w-12 h-12" src="/cardPng/Avatar.png" alt="" />
+          <Profile />
         </div>
       </div>
     </div>
