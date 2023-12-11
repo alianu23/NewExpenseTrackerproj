@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { DefLogo } from "../logo/Logo";
 import RecordForm from "../form/addRecordForm";
 import Profile from "./navbarMenu";
+import { UserContext } from "@/Context/UserProvider";
 
 const navigations = [
   { name: "Dashboard", path: "/" },

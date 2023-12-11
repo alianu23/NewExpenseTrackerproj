@@ -1,8 +1,12 @@
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import Logo from "@/components/logo/Logo";
+import UserProvider, { UserContext } from "@/Context/UserProvider";
 
 export default function LogIn() {
   const router = useRouter();
+  const { loginUserData, changeLoginUserData, login, signup } =
+    useContext(UserContext);
 
   return (
     <div className="flex w-screen h-screen">
@@ -15,15 +19,24 @@ export default function LogIn() {
         <input
           type="text"
           placeholder="Email"
+          name="email"
+          onChange={(e) => {
+            changeLoginUserData(e.target.name, e.target.value);
+          }}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full mt-6 max-w-xs"
+          value={loginUserData.email}
         />
         <input
-          type="text"
+          type="password"
           placeholder="Password"
+          name="password"
+          onChange={(e) => {
+            changeLoginUserData(e.target.name, e.target.value);
+          }}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
         <button
-          onClick={() => router.push("/")}
+          onClick={login}
           className="btn btn-primary w-full max-w-xs text-lg text-white font-normal rounded-full"
         >
           Log in

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
+import { UserContext } from "@/Context/UserProvider";
 
 const Profile = () => {
   const route = useRouter();
+  const { logout } = useContext(UserContext);
   return (
     <div className="dropdown dropdown-end">
       <div
@@ -28,7 +30,7 @@ const Profile = () => {
           <a>Settings</a>
         </li>
         <li>
-          <a>Logout</a>
+          <a onClick={logout}>Logout</a>
         </li>
       </ul>
     </div>
