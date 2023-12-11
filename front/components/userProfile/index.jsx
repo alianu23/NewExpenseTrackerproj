@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../header";
 import { useRouter } from "next/router";
+import { UserContext } from "@/Context/UserProvider";
 
 const UserProfile = () => {
   const route = useRouter();
+  const { user } = useContext(UserContext);
+
   return (
     <div className="bg-[#F6F6F6]">
       <Header />
@@ -19,6 +22,7 @@ const UserProfile = () => {
                 type="text"
                 placeholder="Type here"
                 className="input input-bordered w-full max-w-xs"
+                value={user.name}
               />
             </label>
             <label className="form-control w-full max-w-xs">
@@ -29,6 +33,7 @@ const UserProfile = () => {
                 type="text"
                 placeholder="Type here"
                 className="input input-bordered w-full max-w-xs"
+                value={user.email}
               />
             </label>
             <label className="form-control w-full max-w-xs">

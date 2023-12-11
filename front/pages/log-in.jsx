@@ -34,6 +34,11 @@ export default function LogIn() {
             changeLoginUserData(e.target.name, e.target.value);
           }}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
+          onKeyUp={(e) => {
+            if (e.code === "Enter") {
+              login();
+            }
+          }}
         />
         <button
           onClick={login}

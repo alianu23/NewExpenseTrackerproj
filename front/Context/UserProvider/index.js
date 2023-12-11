@@ -32,7 +32,7 @@ const UserProvider = ({ children }) => {
       setUser(data.user);
       router.push("/");
     } catch (error) {
-      console.log(`iim ${data} garlaa`);
+      console.log(`iim ${error} garlaa`);
     }
   };
 
