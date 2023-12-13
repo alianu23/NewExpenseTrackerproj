@@ -5,7 +5,8 @@ import { UserContext } from "@/context/UserProvider";
 
 export default function LogIn() {
   const router = useRouter();
-  const { formUserData, changeFormUserData, login } = useContext(UserContext);
+  const { formUserData, changeFormUserData, login, loading } =
+    useContext(UserContext);
 
   return (
     <div className="flex w-screen h-screen">
@@ -40,6 +41,7 @@ export default function LogIn() {
           }}
         />
         <button
+          disabled={loading}
           onClick={login}
           className="btn btn-primary w-full max-w-xs text-lg text-white font-normal rounded-full"
         >

@@ -2,12 +2,12 @@ const { sql } = require("../config/pgDb");
 
 const updateUser = async (req, res) => {
   try {
-    const { currency_type, balance } = req.body;
+    const { currency_type, balance, phonenumber } = req.body;
     const { userId } = req.params;
     console.log("SS", currency_type, balance, userId);
     console.log("body", req.body);
     const data =
-      await sql`UPDATE users SET currency_type=${currency_type}, balance=${balance} WHERE id=${userId} RETURNING *`;
+      await sql`UPDATE users SET currency_type=${currency_type}, balance=${balance}, phonenumber=${phonenumber} WHERE id=${userId} RETURNING *`;
 
     const { password, ...user } = data[0];
     res.status(200).json({ message: "success", user });

@@ -57,6 +57,7 @@ export default function Signup() {
         />
         <button
           onClick={signup}
+          disabled={loading}
           className="btn btn-primary w-full max-w-xs text-lg text-white font-normal rounded-full"
         >
           Sign up

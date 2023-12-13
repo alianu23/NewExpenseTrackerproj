@@ -4,7 +4,7 @@ const createTables = async () => {
   console.log("Creating table....");
   // await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`;
   await sql`ALTER TABLE users
-  ADD balance REAL ;`;
+  ADD phonenumber REAL default 99999999;`;
 
   //   await sql`
   //   CREATE TABLE IF NOT EXISTS users (
