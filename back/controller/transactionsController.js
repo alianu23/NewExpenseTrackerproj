@@ -28,7 +28,6 @@ const deleteTransaction = async (req, res) => {
   }
 };
 const updateTransaction = async (req, res) => {
-  console.log(req.body);
   try {
     const { id } = req.params;
     const { name, description, amount, transaction_type } = req.body;
