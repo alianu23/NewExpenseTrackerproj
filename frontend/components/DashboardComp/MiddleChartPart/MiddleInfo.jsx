@@ -11,7 +11,6 @@ import {
   Title,
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
-import { data } from "../../data/index.js";
 
 ChartJS.register(
   ArcElement,
@@ -68,7 +67,7 @@ const MiddleInfo = () => {
 
         <div className="p-3 flex lg:gap-10 gap-2 items-center justify-center">
           <div className="lg:w-64 lg:h-64 w-32 h-32">
-            <Doughnut data={data} options={options} />
+            <Doughnut data={datas} options={options} />
           </div>
 
           <div className="flex lg:gap-10 gap-3">

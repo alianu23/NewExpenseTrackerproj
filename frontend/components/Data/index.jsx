@@ -16,7 +16,7 @@ export const array2 = [
   { name: "Income", id: 2 },
   { name: "Expense", id: 3 },
 ];
-export const data = {
+export const DoughnutData = {
   labels: ["Bills", "Food", "Shopping", "Insurance", "Clothing"],
   datasets: [
     {

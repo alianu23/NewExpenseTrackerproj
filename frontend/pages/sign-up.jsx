@@ -5,7 +5,8 @@ import { UserContext } from "@/context/UserProvider";
 
 export default function Signup() {
   const router = useRouter();
-  const { signup, changeFormUserData } = useContext(UserContext);
+  const { loading, signup, changeFormUserData, formUserData } =
+    useContext(UserContext);
   return (
     <div className="flex w-screen h-screen">
       <div className="flex-1 flex flex-col items-center justify-center bg-white gap-3">
@@ -21,6 +22,7 @@ export default function Signup() {
             changeFormUserData(e.target.name, e.target.value);
           }}
           placeholder="Name"
+          value={formUserData.name}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full mt-6 max-w-xs"
         />
         <input
@@ -30,6 +32,7 @@ export default function Signup() {
             changeFormUserData(e.target.name, e.target.value);
           }}
           placeholder="Email"
+          value={formUserData.email}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
         <input
@@ -39,6 +42,7 @@ export default function Signup() {
             changeFormUserData(e.target.name, e.target.value);
           }}
           placeholder="Password"
+          value={formUserData.password}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
         <input
@@ -48,6 +52,7 @@ export default function Signup() {
             changeFormUserData(e.target.name, e.target.value);
           }}
           placeholder="Re-password"
+          value={formUserData.re_password}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
         />
         <button

@@ -1,18 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Balance from "../sign-up-step/Balance";
 import Currency from "../sign-up-step/Currency";
 import Finish from "../sign-up-step/Finish";
 import LogoBig from "../logo/LogoBig";
-import { useRouter } from "next/router";
+
+import { StepContext } from "../../context/StepContext";
 
 const SignUpSteps = () => {
-  const [step, setStep] = useState(1);
-  const router = useRouter();
-
-  const next = () => {
-    setStep(step + 1);
-  };
+  const { step, changeStep, goToDashboard } = useContext(StepContext);
 
   const StepSwitch = () => {
     switch (step) {
@@ -57,14 +53,14 @@ const SignUpSteps = () => {
         <div>
           {step === 3 && <Finish /> ? (
             <button
-              onClick={() => router.push("/")}
+              onClick={goToDashboard}
               className="btn mt-5 btn-primary w-full px-32 max-w-lg text-lg text-white font-normal rounded-full"
             >
               Go to Dashboard
             </button>
           ) : (
             <button
-              onClick={next}
+              onClick={changeStep}
               className="btn mt-5 btn-primary w-full px-32 max-w-lg text-lg text-white font-normal rounded-full"
             >
               Confirm
