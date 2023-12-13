@@ -12,7 +12,6 @@ const Balance = () => {
       <input
         type="number"
         name="balance"
-        value={stepData.balance}
         onChange={(e) => {
           changeStepData(e.target.name, e.target.value);
         }}
