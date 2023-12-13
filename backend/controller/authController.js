@@ -4,8 +4,15 @@ const bcrypt = require("bcrypt");
 const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    const findUser = await sql`SELECT email FROM users WHERE email=${email}`;
+    if (findUser.length > 0) {
+      return res.status(409).json({ message: "Email already in use" });
+    }
+    // Get data from body of request
     const hashedPass = bcrypt.hashSync(password, 10);
-    await sql`INSERT INTO users( name, email, password) VALUES(${name}, ${email}, ${hashedPass})`;
+    const data =
+      await sql`INSERT INTO users(email, name, password) VALUES(${email}, ${name}, ${hashedPassword}) RETURNING id`;
+    const { id } = data[0];
     res.status(201).json({ message: "success" });
   } catch (error) {
     res.status(500).json({ message: `${error}-iim aldaa garlaa` });

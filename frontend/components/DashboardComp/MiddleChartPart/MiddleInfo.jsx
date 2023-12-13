@@ -11,7 +11,7 @@ import {
   Title,
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
-import { data } from "../../data/index.jsx";
+import { data } from "../../data/index.js";
 
 ChartJS.register(
   ArcElement,
