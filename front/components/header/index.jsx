@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { DefLogo } from "../logo/Logo";
@@ -17,6 +18,17 @@ const Header = () => {
   const closeForm = () => {
     setOpen(false);
   };
+  const router = useRouter();
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/log-in");
+    }
+  }, [user]);
+  if (!user) {
+    return null;
+  }
 
   const isActive = usePathname();
 

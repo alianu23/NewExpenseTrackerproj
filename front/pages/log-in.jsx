@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import Logo from "@/components/logo/Logo";
-import UserProvider, { UserContext } from "@/Context/UserProvider";
+import { UserContext } from "@/Context/UserProvider";
 
 export default function LogIn() {
   const router = useRouter();
-  const { loginUserData, changeLoginUserData, login, signup } =
-    useContext(UserContext);
+  const { loginUserData, changeLoginUserData, login } = useContext(UserContext);
 
   return (
     <div className="flex w-screen h-screen">

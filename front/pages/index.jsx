@@ -9,16 +9,6 @@ import { UserContext } from "@/Context/UserProvider";
 export default function Home() {
   const router = useRouter();
 
-  const { user } = useContext(UserContext);
-
-  useEffect(() => {
-    if (!user) {
-      router.push("/log-in");
-    }
-  }, [user]);
-  if (!user) {
-    return null;
-  }
   return (
     <div className="bg-[#F6F6F6]">
       <Header />

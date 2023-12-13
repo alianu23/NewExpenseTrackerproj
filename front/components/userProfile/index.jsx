@@ -1,12 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../header";
 import { useRouter } from "next/router";
 import { UserContext } from "@/Context/UserProvider";
 
 const UserProfile = () => {
-  const route = useRouter();
+  const router = useRouter();
   const { user } = useContext(UserContext);
 
+  useEffect(() => {
+    if (!user) {
+      router.push("/log-in");
+    }
+  }, [user]);
+  if (!user) {
+    return null;
+  }
   return (
     <div className="bg-[#F6F6F6]">
       <Header />
@@ -67,7 +75,7 @@ const UserProfile = () => {
               />
             </label>
             <button
-              onClick={() => route.push("/")}
+              onClick={() => router.push("/")}
               className="btn bg-[#0166FF] text-white rounded-lg mt-3 w-full"
             >
               save
