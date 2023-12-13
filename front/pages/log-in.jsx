@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import Logo from "@/components/logo/Logo";
-import { UserContext } from "@/Context/UserProvider";
+import { UserContext } from "@/context/UserProvider";
 
 export default function LogIn() {
   const router = useRouter();
-  const { loginUserData, changeLoginUserData, login } = useContext(UserContext);
+  const { formUserData, changeFormUserData, login } = useContext(UserContext);
 
   return (
     <div className="flex w-screen h-screen">
@@ -20,17 +20,17 @@ export default function LogIn() {
           placeholder="Email"
           name="email"
           onChange={(e) => {
-            changeLoginUserData(e.target.name, e.target.value);
+            changeFormUserData(e.target.name, e.target.value);
           }}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full mt-6 max-w-xs"
-          value={loginUserData.email}
+          value={formUserData.email}
         />
         <input
           type="password"
           placeholder="Password"
           name="password"
           onChange={(e) => {
-            changeLoginUserData(e.target.name, e.target.value);
+            changeFormUserData(e.target.name, e.target.value);
           }}
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
           onKeyUp={(e) => {

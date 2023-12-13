@@ -4,7 +4,7 @@ import TopInfo from "@/components/dashboardComp/TopInfo";
 import MiddleInfo from "@/components/dashboardComp/middleChartPart/MiddleInfo";
 import BottomInfo from "@/components/dashboardComp/bottom/BottomInfo";
 import { useRouter } from "next/router";
-import { UserContext } from "@/Context/UserProvider";
+import { UserContext } from "@/context/UserProvider";
 
 export default function Home() {
   const router = useRouter();

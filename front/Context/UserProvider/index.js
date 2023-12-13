@@ -7,35 +7,28 @@ export const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
-  const [loginUserData, setLoginUserData] = useState({
+  const [formUserData, setLoginUserData] = useState({
     email: "anuka@gmail.com",
     password: "",
-  });
-  const [signupUserData, setSignupUserData] = useState({
     name: "",
-    email: "",
-    password: "",
+    re_password: "",
   });
 
-  const changeSignupUserData = (key, value) => {
-    setSignupUserData({ ...signupUserData, [key]: value });
-  };
-
-  const changeLoginUserData = (key, value) => {
-    setLoginUserData({ ...loginUserData, [key]: value });
+  const changeFormUserData = (key, value) => {
+    setLoginUserData({ ...formUserData, [key]: value });
   };
 
   const login = async () => {
-    console.log("email", loginUserData.email);
-    console.log("pass", loginUserData.password);
-    if (!loginUserData.email || !loginUserData.password) {
+    console.log("email", formUserData.email);
+    console.log("pass", formUserData.password);
+    if (!formUserData.email || !formUserData.password) {
       alert("You must write email and password");
       return;
     }
     try {
       const { data } = await axios.post("http://localhost:8008/auth/signin", {
-        userEmail: loginUserData.email,
-        userPassword: loginUserData.password,
+        userEmail: formUserData.email,
+        userPassword: formUserData.password,
       });
       console.log("first", data.message);
       setUser(data.user);
@@ -50,19 +43,28 @@ const UserProvider = ({ children }) => {
   };
 
   const signup = async () => {
-    console.log("name", signupUserData.name);
-    console.log("email", signupUserData.email);
-    console.log("pass", signupUserData.password);
+    console.log("name", formUserData.name);
+    console.log("email", formUserData.email);
+    console.log("pass", formUserData.password);
 
-    if (!signupUserData.email || !signupUserData.password) {
+    if (
+      !formUserData.email ||
+      !formUserData.password ||
+      !formUserData.name ||
+      !formUserData.password
+    ) {
       alert("You must fill all the input");
+      return;
+    }
+    if (formUserData.re_password !== formUserData.password) {
+      alert("Passwords are not same");
       return;
     }
     try {
       const { data } = await axios.post("http://localhost:8008/auth/signup", {
-        name: signupUserData.name,
-        email: signupUserData.email,
-        password: signupUserData.password,
+        name: formUserData.name,
+        email: formUserData.email,
+        password: formUserData.password,
       });
       console.log("first", data.message);
       setUser(data.user);
@@ -76,11 +78,10 @@ const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         user,
-        loginUserData,
+        formUserData,
         login,
         signup,
-        changeLoginUserData,
-        changeSignupUserData,
+        changeFormUserData,
         logout,
       }}
     >

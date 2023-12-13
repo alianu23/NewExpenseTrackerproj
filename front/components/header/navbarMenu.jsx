@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
-import { UserContext } from "@/Context/UserProvider";
+import { UserContext } from "@/context/UserProvider";
 
 const Profile = () => {
   const route = useRouter();

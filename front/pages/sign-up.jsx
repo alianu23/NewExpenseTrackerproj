@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import Logo from "@/components/logo/Logo";
-import { UserContext } from "@/Context/UserProvider";
+import { UserContext } from "@/context/UserProvider";
 
 export default function Signup() {
   const router = useRouter();
-  const { signup, changeSignupUserData } = useContext(UserContext);
+  const { signup, changeFormUserData } = useContext(UserContext);
   return (
     <div className="flex w-screen h-screen">
       <div className="flex-1 flex flex-col items-center justify-center bg-white gap-3">
@@ -18,7 +18,7 @@ export default function Signup() {
           type="text"
           name="name"
           onChange={(e) => {
-            changeSignupUserData(e.target.name, e.target.value);
+            changeFormUserData(e.target.name, e.target.value);
           }}
           placeholder="Name"
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full mt-6 max-w-xs"
@@ -27,7 +27,7 @@ export default function Signup() {
           type="text"
           name="email"
           onChange={(e) => {
-            changeSignupUserData(e.target.name, e.target.value);
+            changeFormUserData(e.target.name, e.target.value);
           }}
           placeholder="Email"
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
@@ -36,7 +36,7 @@ export default function Signup() {
           type="password"
           name="password"
           onChange={(e) => {
-            changeSignupUserData(e.target.name, e.target.value);
+            changeFormUserData(e.target.name, e.target.value);
           }}
           placeholder="Password"
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
@@ -45,7 +45,7 @@ export default function Signup() {
           type="password"
           name="re_password"
           onChange={(e) => {
-            changeSignupUserData(e.target.name, e.target.value);
+            changeFormUserData(e.target.name, e.target.value);
           }}
           placeholder="Re-password"
           className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"

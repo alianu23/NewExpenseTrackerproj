@@ -1,4 +1,4 @@
-import UserProvider from "@/Context/UserProvider";
+import UserProvider from "@/context/UserProvider";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
