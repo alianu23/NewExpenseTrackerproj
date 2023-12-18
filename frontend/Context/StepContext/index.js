@@ -43,7 +43,13 @@ export const StepProvider = ({ children }) => {
 
   return (
     <StepContext.Provider
-      value={{ step, changeStep, stepData, changeStepData, goToDashboard }}
+      value={{
+        step,
+        changeStep,
+        stepData,
+        changeStepData,
+        goToDashboard,
+      }}
     >
       {children}
     </StepContext.Provider>

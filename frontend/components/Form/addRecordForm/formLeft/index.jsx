@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { FaPlusCircle } from "react-icons/fa";
 import { DashArrow } from "@/components/iconsvg";
 import CategoryForm from "../../addCategoryForm";
 
 import RecordIcons from "./RecordIcons";
+import { StepContext } from "@/context/StepContext";
 
 const FormLeft = () => {
   const [open, setOpen] = useState(false);
+  const { changeStepData, goToDashboard } = useContext(StepContext);
 
   const closeForm = () => {
     setOpen(false);
@@ -24,9 +26,28 @@ const FormLeft = () => {
         </button>
       </div>
       <form>
-        <div className="border-[1px] p-3 bg-[#F9FAFB] rounded-lg">
+        <div className="border-[1px] p-3 flex flex-col gap-4 bg-[#F9FAFB] rounded-lg">
           <h1>Amount</h1>
-          <input type="number" className="bg-[#F9FAFB]" placeholder="$ 000,0" />
+          <select
+            name="currency_type"
+            onChange={(e) => {
+              changeStepData(e.target.name, e.target.value);
+            }}
+            className="select select-bordered w-full max-w-xs"
+          >
+            <option disabled selected>
+              Select currency
+            </option>
+            <option value="MNT">MNT - Mongolian Tugrik</option>
+            <option value="USD">USD - US Dollar</option>
+            <option value="CNY">CNY - China Yuan</option>
+          </select>
+          <input
+            type="number"
+            className="bg-[#F9FAFB]"
+            name="balance"
+            placeholder="$ 000,0"
+          />
         </div>
         <h1 className="mt-4 mb-2 font-semibold">Category</h1>
         <details className="dropdown w-full">
