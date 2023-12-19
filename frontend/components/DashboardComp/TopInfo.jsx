@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IconOne, IconTwo, IconThree, IconFour } from "../iconsvg";
+import { StepContext } from "@/context/StepContext";
+import { UserContext } from "@/context/UserProvider";
+import { TransactionContext } from "@/context/TransactionContext";
 
 const TopInfo = () => {
+  const { user } = useContext(UserContext);
+  const { transactioData } = useContext(TransactionContext);
   return (
     <div className="flex w-full mt-6">
-      <div className="flex-1 ">
-        <img className="w-full h-full" src="/cardPng/large.png" />
+      <div className="flex-1 w-full h-full bg-[#0166FF] rounded-2xl">
+        <img className="w-full h-56" src="/cardPng/large.png" />
+        <div className="flex ml-8 gap-2 ">
+          <div className="text-white">{user.currency_type}</div>
+          <input
+            className="text-white bg-[#0166ff]"
+            type="number"
+            value={user.balance}
+          />
+        </div>
       </div>
       <div className="flex-1 ml-7 p-4 bg-white rounded-2xl">
         <div className="flex items-center border-b-2 mb-3 pb-2 text-xs">

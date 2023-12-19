@@ -1,7 +1,9 @@
 const { sql } = require("../config/pgDb");
 
-const transactions = async (req, res) => {
-  console.log(req.body);
+const getAllTransaction = async (req, res) => {};
+
+const createTransactions = async (req, res) => {
+  console.log("USER", req.body);
   try {
     const {
       name,
@@ -10,9 +12,14 @@ const transactions = async (req, res) => {
       transaction_type,
       user_id,
       category_id,
+      updated_at,
     } = req.body;
-    await sql`INSERT INTO transactions(user_id, category_id, name, description, amount, transaction_type) VALUES(${user_id},${category_id},${name}, ${description} , ${amount} , ${transaction_type})`;
-    res.status(201).json({ message: "transaction added" });
+
+    const data =
+      await sql`INSERT INTO transactions(user_id, category_id, name, description, amount, transaction_type, updated_at) VALUES(${user_id},${category_id},${name}, ${description} , ${amount} , ${transaction_type},${updated_at}) RETURNING *`;
+    res
+      .status(201)
+      .json({ message: "transaction added", transaction: data[0] });
   } catch (error) {
     res.status(500).json({ message: `${error}-iim aldaa garlaa` });
   }
@@ -38,4 +45,9 @@ const updateTransaction = async (req, res) => {
   }
 };
 
-module.exports = { transactions, deleteTransaction, updateTransaction };
+module.exports = {
+  createTransactions,
+  deleteTransaction,
+  updateTransaction,
+  getAllTransaction,
+};

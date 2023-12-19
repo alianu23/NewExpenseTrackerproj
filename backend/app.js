@@ -17,9 +17,9 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "images/")));
 
 app.use("/auth", authRoutes);
-app.use("/api/records", categoryRoutes);
+app.use("/categories/", categoryRoutes);
 app.use("/api/image", imgRoutes);
-app.use("/api/", transansactionRoutes);
+app.use("/transactions/", transansactionRoutes);
 app.use("/users/", userRoutes);
 
 app.listen(PORT, () => {
