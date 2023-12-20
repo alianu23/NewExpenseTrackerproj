@@ -12,11 +12,11 @@ const TopInfo = () => {
       <div className="flex-1 w-full h-full bg-[#0166FF] rounded-2xl">
         <img className="w-full h-56" src="/cardPng/large.png" />
         <div className="flex ml-8 gap-2 ">
-          <div className="text-white">{user.currency_type}</div>
+          {/* <div className="text-white">{user.currency_type}</div> */}
           <input
             className="text-white bg-[#0166ff]"
             type="number"
-            value={user.balance}
+            // value={user.balance}
           />
         </div>
       </div>
