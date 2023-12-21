@@ -1,25 +1,17 @@
-import React from "react";
-import DataChange, { DataChangeFood } from "./DataChange";
+import React, { useContext } from "react";
+
+import { TransactionContext } from "@/context/TransactionContext";
+import DataChange from "./DataChange";
 
 const BottomRecord = () => {
+  const { transactions } = useContext(TransactionContext);
   return (
     <>
       <div>
         <h1 className="my-4 font-semibold">Today</h1>
-        <DataChange />
-        <DataChangeFood />
-        <DataChangeFood />
-        <DataChangeFood />
-        <DataChangeFood />
-      </div>
-      <div>
-        <h1 className="my-4 font-semibold">Yesterday</h1>
-        <DataChangeFood />
-        <DataChangeFood />
-        <DataChangeFood />
-        <DataChangeFood />
-        <DataChangeFood />
-        <DataChangeFood />
+        {transactions?.map((transaction) => (
+          <DataChange transaction={transaction} key={transaction.id} />
+        ))}
       </div>
     </>
   );

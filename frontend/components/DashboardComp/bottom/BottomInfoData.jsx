@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { getCurrencySymbol, getIcons } from "@/utils";
 
-const DataChange = ({ transaction }) => {
+const Bottom = ({ transaction }) => {
   // console.log("7777777", transaction.category_color);
   return (
     <div className="border-b-2 py-6 flex justify-between items-center">
@@ -26,13 +26,12 @@ const DataChange = ({ transaction }) => {
             : "text-lime-500 "
         } font-medium mr-4`}
       >
-        {transaction.transaction_type === "EXP" ? "-" : "+"}
         {transaction.amount}
         {getCurrencySymbol(transaction.currency_type)}
       </h4>
     </div>
   );
 };
-export default DataChange;
+export default Bottom;
 
 // text-lime-500

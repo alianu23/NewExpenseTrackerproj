@@ -9,6 +9,8 @@ const UserProvider = ({ children }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [userAmount, setUserAmount] = useState(0);
+  const [userId, setUserId] = useState("");
 
   const [formUserData, setLoginUserData] = useState({
     email: "",
@@ -38,12 +40,16 @@ const UserProvider = ({ children }) => {
 
     try {
       setLoading(true);
-      const { data } = await axios.post("http://localhost:8008/auth/signin", {
+      const {
+        data: { user },
+      } = await axios.post("http://localhost:8008/auth/signin", {
         userEmail: formUserData.email,
         userPassword: formUserData.password,
       });
-      console.log("first", data.user);
-      setUser(data.user);
+      // console.log("first", user);
+      setUser(user);
+      setUserAmount(user.balance);
+      setUserId(user.id);
       router.push("/");
     } catch (error) {
       toast.error(`iim ${error}-toi aldaa garlaa`, { autoClose: 3000 });
@@ -99,6 +105,8 @@ const UserProvider = ({ children }) => {
         signup,
         changeFormUserData,
         logout,
+        userAmount,
+        userId,
       }}
     >
       {children}
