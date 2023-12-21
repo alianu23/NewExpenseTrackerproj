@@ -41,7 +41,9 @@ const CategoryProvider = ({ children }) => {
   };
 
   return (
-    <CategoryContext.Provider value={{}}>{children}</CategoryContext.Provider>
+    <CategoryContext.Provider value={{ getCategories, category }}>
+      {children}
+    </CategoryContext.Provider>
   );
 };
 
