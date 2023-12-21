@@ -6,13 +6,12 @@ import CategoryForm from "../../addCategoryForm";
 
 import RecordIcons from "./RecordIcons";
 import { TransactionContext } from "@/context/TransactionContext";
-import axios from "axios";
+import { CategoryContext } from "@/context/CategoryContext";
 
 const FormLeft = ({ closeForm }) => {
-  const [open, setOpen] = useState(false);
-  const [category, setCategory] = useState([]);
   const { transactionData, changeTransactionData, addTransaction } =
     useContext(TransactionContext);
+  const { getCategories } = useContext(CategoryContext);
 
   // const closeForm = () => {
   //   setOpen(false);
@@ -22,14 +21,6 @@ const FormLeft = ({ closeForm }) => {
     await addTransaction();
     console.log("close");
     closeForm();
-  };
-
-  const getCategories = async () => {
-    let {
-      data: { categories },
-    } = await axios.get("http://localhost:8008/categories");
-    console.log("RES", categories);
-    setCategory(categories);
   };
 
   useEffect(() => {
@@ -85,10 +76,7 @@ const FormLeft = ({ closeForm }) => {
           </summary>
 
           <ul className="shadow menu w-full dropdown-content z-[1] bg-base-100 rounded-box">
-            <RecordIcons
-              changeTransactionData={changeTransactionData}
-              category={category}
-            />
+            <RecordIcons changeTransactionData={changeTransactionData} />
           </ul>
         </details>
         <div>

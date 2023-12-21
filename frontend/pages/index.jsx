@@ -1,13 +1,20 @@
 import React, { useContext, useEffect } from "react";
+
 import Header from "@/components/header";
 import TopInfo from "@/components/dashboardComp/TopInfo";
 import MiddleInfo from "@/components/dashboardComp/middleChartPart/MiddleInfo";
 import BottomInfo from "@/components/dashboardComp/bottom/BottomInfo";
-import { useRouter } from "next/router";
-import { UserContext } from "@/context/UserProvider";
-
+import { TransactionContext } from "@/context/TransactionContext";
 export default function Home() {
-  const router = useRouter();
+  const { getAllTransaction, reFetch, getExpSum, getIncSum } =
+    useContext(TransactionContext);
+
+  useEffect(() => {
+    console.log("GAT");
+    getAllTransaction();
+    getExpSum();
+    getIncSum();
+  }, [reFetch]);
 
   return (
     <div className="bg-[#F6F6F6]">
