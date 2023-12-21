@@ -1,6 +1,44 @@
 const { sql } = require("../config/pgDb");
 
-const getAllTransaction = async (req, res) => {};
+const getAllTransaction = async (req, res) => {
+  const { userId } = req.params;
+  console.log("userId", userId);
+  try {
+    const transactions =
+      await sql`SELECT tr.name, tr.amount, tr.created_at,tr.id, tr.transaction_type, ct.category_img, ct.category_color FROM transactions tr INNER JOIN category ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} ORDER BY created_at DESC`;
+    // console.log("TRANSACTIONS", transactions);
+    res.status(200).json({ message: "success", transactions });
+  } catch (error) {
+    console.log("err", error);
+    res.status(500).json({ message: "failed" });
+  }
+};
+
+const getExpSum = async (req, res) => {
+  const { userId } = req.params;
+  console.log("expUser", userId);
+  try {
+    const expSum =
+      await sql`SELECT SUM(amount) FROM transactions WHERE user_id = ${userId} AND transaction_type = 'EXP'`;
+    console.log("EXP", expSum[0]);
+    res.status(200).json({ message: "success", data: expSum[0] });
+  } catch (error) {
+    res.status(500).json({ message: "failed" });
+  }
+};
+
+const getIncSum = async (req, res) => {
+  const { userId } = req.params;
+  console.log("incUser", userId);
+  try {
+    const incSum =
+      await sql`SELECT SUM(amount) FROM transactions WHERE user_id = ${userId} AND transaction_type = 'INC'`;
+    console.log("inc", incSum[0]);
+    res.status(200).json({ message: "success", data: incSum[0] });
+  } catch (error) {
+    res.status(500).json({ message: "failed" });
+  }
+};
 
 const createTransactions = async (req, res) => {
   console.log("USER", req.body);
@@ -50,4 +88,6 @@ module.exports = {
   deleteTransaction,
   updateTransaction,
   getAllTransaction,
+  getExpSum,
+  getIncSum,
 };

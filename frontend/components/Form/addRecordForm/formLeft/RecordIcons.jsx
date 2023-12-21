@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { getIcons } from "@/utils";
+import { CategoryContext } from "@/context/CategoryContext";
 
-const RecordIcons = ({ category, changeTransactionData }) => {
+const RecordIcons = ({ changeTransactionData }) => {
+  const { category } = useContext(CategoryContext);
   return (
     <div>
       {category.map((el) => (

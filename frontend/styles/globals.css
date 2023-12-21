@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,4 +23,24 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.bg-purple-500 {
+  background-color: purple;
+}
+
+.bg-purple-600 {
+  background-color: rgb(185, 35, 185);
+}
+.bg-blue-500 {
+  background-color: rgb(53, 103, 197);
+}
+.bg-green-500 {
+  background-color: rgb(141, 221, 22);
+}
+.bg-orange-500 {
+  background-color: orange;
+}
+.bg-red-500 {
+  background-color: red;
 }
