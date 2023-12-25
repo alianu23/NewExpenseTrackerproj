@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import RecordCategory from "./RecordCategory";
-import { array } from "@/components/data/index.jsx";
 import CategoryForm from "@/components/form/addCategoryForm";
+import { CategoryContext } from "@/context/CategoryContext";
 
 const RecordBig = () => {
+  const { category } = useContext(CategoryContext);
   const [open, setOpen] = useState(false);
 
   const closeForm = () => {
@@ -17,7 +18,7 @@ const RecordBig = () => {
         <h1>Category</h1>
         <h1 className="text-slate-400">Clear</h1>
       </div>
-      {array.map((el) => (
+      {category.map((el) => (
         <RecordCategory data={el.name} key={el.id} />
       ))}
       <button

@@ -72,6 +72,11 @@ const Header = () => {
             </svg>
             Record
           </button>
+          <div>
+            <p className="text-slate-400">Hello</p>
+            <p className="font-semibold">{user.name}</p>
+          </div>
+
           {open && <RecordForm open={open} closeForm={closeForm} />}
           <Profile />
         </div>

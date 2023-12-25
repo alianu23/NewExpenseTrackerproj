@@ -5,6 +5,7 @@ import { icons, colors } from "@/utils";
 import { CategoryContext } from "@/context/CategoryContext";
 
 const CategoryForm = ({ open, closeForm }) => {
+  const { showIcon } = useContext(CategoryContext);
   return (
     <dialog className="modal" open={open}>
       <div className="modal-box flex flex-col max-w-lg shadow-2xl">

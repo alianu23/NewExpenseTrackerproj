@@ -26,6 +26,7 @@ const Bottom = ({ transaction }) => {
             : "text-lime-500 "
         } font-medium mr-4`}
       >
+        {transaction.transaction_type === "EXP" ? "-" : "+"}
         {transaction.amount}
         {getCurrencySymbol(transaction.currency_type)}
       </h4>

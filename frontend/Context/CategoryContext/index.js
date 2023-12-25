@@ -41,7 +41,7 @@ const CategoryProvider = ({ children }) => {
   };
 
   return (
-    <CategoryContext.Provider value={{ getCategories, category }}>
+    <CategoryContext.Provider value={{ getCategories, category, showIcon }}>
       {children}
     </CategoryContext.Provider>
   );
