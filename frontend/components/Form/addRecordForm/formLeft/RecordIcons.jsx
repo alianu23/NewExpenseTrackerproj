@@ -8,6 +8,7 @@ const RecordIcons = ({ changeTransactionData }) => {
     <div>
       {category.map((el) => (
         <button
+          key={el.id}
           className="w-full font-normal mb-4 flex items-center gap-3 hover:opacity-50"
           onClick={(e) => {
             e.preventDefault();

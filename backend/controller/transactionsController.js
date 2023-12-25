@@ -40,6 +40,14 @@ const getIncSum = async (req, res) => {
   }
 };
 
+const barTrans = async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const data =
+      await sql`SELECT SUM(amount), name FROM transactions user_id = ${userId}`;
+  } catch (error) {}
+};
+
 const createTransactions = async (req, res) => {
   console.log("USER", req.body);
   try {

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -11,6 +11,8 @@ import {
   Title,
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
+import { CategoryContext } from "@/context/CategoryContext";
+import { TransactionContext } from "@/context/TransactionContext";
 
 ChartJS.register(
   ArcElement,
@@ -50,6 +52,7 @@ export const datas = {
 };
 
 const MiddleInfo = () => {
+  const { transactions } = useContext(TransactionContext);
   return (
     <div className="flex my-7 w-full lg:flex-row flex-col ">
       <div className="flex-1 bg-white w-full p-7 mr-5">
@@ -69,30 +72,13 @@ const MiddleInfo = () => {
           <div className="lg:w-64 lg:h-64 w-32 h-32">
             <Doughnut data={datas} options={options} />
           </div>
-
-          <div className="flex lg:gap-10 gap-3">
-            <div className="lg:text-lg text-xs">
-              <p>Bills</p>
-              <p>Food</p>
-              <p>Shopping</p>
-              <p>Insurance</p>
-              <p>Clothing</p>
+          {transactions.map((el) => (
+            <div className="lg:gap-10 gap-3 flex flex-col">
+              <p className="lg:text-lg text-xs">{el.category_img}</p>
+              <p className="lg:text-lg text-xs">{el.amount}</p>
+              <p className="lg:text-lg text-xs">{el.amount}</p>
             </div>
-            <div className="lg:text-lg text-xs">
-              <p>5'000'000</p>
-              <p>5'000'000</p>
-              <p>5'000'000</p>
-              <p>5'000'000</p>
-              <p>5'000'000</p>
-            </div>
-            <div className="lg:text-lg text-xs">
-              <p>15.50%</p>
-              <p>15.50%</p>
-              <p>15.50%</p>
-              <p>15.50%</p>
-              <p>15.50%</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
