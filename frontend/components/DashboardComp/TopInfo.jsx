@@ -7,8 +7,8 @@ import { TransactionContext } from "@/context/TransactionContext";
 
 const TopInfo = () => {
   const { userAmount } = useContext(UserContext);
-  const { expSum, incSum } = useContext(TransactionContext);
-
+  const { getSums } = useContext(TransactionContext);
+  // console.log("skbfkjabjkba", getSums);
   // console.log("BALANCE", userAmount);
   return (
     <div className="flex w-full mt-6">
@@ -54,7 +54,7 @@ const TopInfo = () => {
         <div>
           <span className="font-bold lg:text-4xl md:text-2xl text-xl">
             {" "}
-            {incSum}
+            {getSums?.inc}
           </span>
           <p className="text-xs my-2 lg:text-base md:my-3 lg:my-4 text-slate-500">
             Your Income Amount
@@ -75,7 +75,7 @@ const TopInfo = () => {
         <div>
           <span className="font-bold lg:text-4xl md:text-2xl text-xl">
             {" "}
-            - {expSum}
+            - {getSums?.exp}
           </span>
           <p className="text-xs lg:text-base lg:my-4 md:my-3 my-2 text-slate-500">
             Your Expense Amount

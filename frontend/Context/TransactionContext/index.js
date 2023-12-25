@@ -54,38 +54,21 @@ const TransactionProvider = ({ children }) => {
       console.log("Record denied");
     }
   };
-  const [expSum, setExpSum] = useState();
+  const [getSums, setGetSums] = useState();
 
-  const getExpSum = async () => {
-    console.log("expSum");
+  const getSum = async () => {
+    console.log("getSum");
     try {
       const {
         data: { data },
-      } = await axios.get(
-        `http://localhost:8008/transactions/expsum/` + user.id
-      );
-      // console.log("EXPSUM", data.sum);
-      setExpSum(data.sum);
+      } = await axios.get(`http://localhost:8008/transactions/sum/` + user.id);
+      console.log("123456", data);
+      setGetSums(data);
     } catch (error) {
       console.log("expsum deer", error);
     }
   };
-  const [incSum, setIncSum] = useState();
 
-  const getIncSum = async () => {
-    console.log("incSum");
-    try {
-      const {
-        data: { data },
-      } = await axios.get(
-        `http://localhost:8008/transactions/incsum/` + user.id
-      );
-      // console.log("INCSUM", data.sum);
-      setIncSum(data.sum);
-    } catch (error) {
-      console.log("incsum deer", error);
-    }
-  };
   return (
     <TransactionContext.Provider
       value={{
@@ -94,10 +77,8 @@ const TransactionProvider = ({ children }) => {
         changeTransactionData,
         addTransaction,
         getAllTransaction,
-        expSum,
-        getExpSum,
-        incSum,
-        getIncSum,
+        getSum,
+        getSums,
         reFetch,
         setReFetch,
       }}

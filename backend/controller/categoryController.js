@@ -35,4 +35,15 @@ const updateCategory = async (req, res) => {
   }
 };
 
-module.exports = { category, getAllCategory, updateCategory };
+const deleteCategory = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log("Delete cat id", id);
+    await sql`DELETE FROM category WHERE id=${id}`;
+    res.status(201).json({ message: "category deleted" });
+  } catch (error) {
+    res.status(500).json({ message: `${error}-iim aldaa garlaa` });
+  }
+};
+
+module.exports = { category, getAllCategory, updateCategory, deleteCategory };

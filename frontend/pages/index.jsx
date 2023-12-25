@@ -6,14 +6,12 @@ import MiddleInfo from "@/components/dashboardComp/middleChartPart/MiddleInfo";
 import BottomInfo from "@/components/dashboardComp/bottom/BottomInfo";
 import { TransactionContext } from "@/context/TransactionContext";
 export default function Home() {
-  const { getAllTransaction, reFetch, getExpSum, getIncSum } =
-    useContext(TransactionContext);
+  const { getAllTransaction, reFetch, getSum } = useContext(TransactionContext);
 
   useEffect(() => {
     console.log("GAT");
     getAllTransaction();
-    getExpSum();
-    getIncSum();
+    getSum();
   }, [reFetch]);
 
   return (

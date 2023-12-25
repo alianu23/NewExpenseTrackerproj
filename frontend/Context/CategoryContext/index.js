@@ -11,6 +11,7 @@ const CategoryProvider = ({ children }) => {
   const { user } = useContext(UserContext);
   const [category, setCategory] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [refresh, setRefresh] = useState(false);
   const [showIcon, setShowIcon] = useState(<FaHome size={30} />);
   const [createCtr, setCreateCtr] = useState({
     name: "ner",
@@ -18,6 +19,18 @@ const CategoryProvider = ({ children }) => {
     category_img: "",
     category_color: "",
   });
+
+  const handleColor = (color) => {
+    setCreateCtr({ ...createCtr, category_color: color });
+  };
+  const handleIcon = (icon) => {
+    setCreateCtr({ ...createCtr, category_img: icon });
+  };
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+    setCreateCtr({ ...createCtr, [e.target.name]: e.target.value });
+  };
 
   const createCategory = async () => {
     try {
@@ -40,8 +53,32 @@ const CategoryProvider = ({ children }) => {
     setCategory(categories);
   };
 
+  const deleteCategories = async () => {
+    try {
+      const data = await axios.delete(
+        "http://localhost:8008/categories/" + category.id
+      );
+      setRefresh(!refresh);
+    } catch (error) {}
+  };
+
   return (
-    <CategoryContext.Provider value={{ getCategories, category, showIcon }}>
+    <CategoryContext.Provider
+      value={{
+        deleteCategories,
+        inputValue,
+        getCategories,
+        category,
+        showIcon,
+        handleChange,
+        handleIcon,
+        handleColor,
+        createCategory,
+        createCtr,
+        setShowIcon,
+        setInputValue,
+      }}
+    >
       {children}
     </CategoryContext.Provider>
   );

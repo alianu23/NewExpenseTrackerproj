@@ -14,27 +14,15 @@ const getAllTransaction = async (req, res) => {
   }
 };
 
-const getExpSum = async (req, res) => {
+const getSum = async (req, res) => {
   const { userId } = req.params;
   console.log("expUser", userId);
   try {
-    const expSum =
-      await sql`SELECT SUM(amount) FROM transactions WHERE user_id = ${userId} AND transaction_type = 'EXP'`;
-    console.log("EXP", expSum[0]);
-    res.status(200).json({ message: "success", data: expSum[0] });
-  } catch (error) {
-    res.status(500).json({ message: "failed" });
-  }
-};
-
-const getIncSum = async (req, res) => {
-  const { userId } = req.params;
-  console.log("incUser", userId);
-  try {
-    const incSum =
-      await sql`SELECT SUM(amount) FROM transactions WHERE user_id = ${userId} AND transaction_type = 'INC'`;
-    console.log("inc", incSum[0]);
-    res.status(200).json({ message: "success", data: incSum[0] });
+    const getSum =
+      await sql`SELECT transaction_type, SUM(amount) FROM transactions WHERE user_id = ${userId} GROUP BY transaction_type`;
+    const exp = getSum.filter((el) => el.transaction_type === "EXP")[0].sum;
+    const inc = getSum.filter((el) => el.transaction_type === "INC")[0].sum;
+    res.status(200).json({ message: "success", data: { exp, inc } });
   } catch (error) {
     res.status(500).json({ message: "failed" });
   }
@@ -96,6 +84,5 @@ module.exports = {
   deleteTransaction,
   updateTransaction,
   getAllTransaction,
-  getExpSum,
-  getIncSum,
+  getSum,
 };

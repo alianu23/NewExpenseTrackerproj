@@ -10,7 +10,7 @@ export default function LogIn() {
 
   return (
     <div className="flex w-screen h-screen">
-      <div className="flex-1 flex flex-col items-center justify-center bg-white gap-3">
+      <div className="lg:flex-1 w-full flex flex-col items-center justify-center bg-white gap-3">
         <Logo />
         <h3 className="font-semibold text-xl ">Welcome Back</h3>
         <p className="text-[#334155]">
@@ -57,7 +57,7 @@ export default function LogIn() {
           </button>
         </div>
       </div>
-      <div className="flex-1 bg-[#0166FF] "></div>
+      <div className="lg:flex-1 w-0 bg-[#0166FF] "></div>
     </div>
   );
 }

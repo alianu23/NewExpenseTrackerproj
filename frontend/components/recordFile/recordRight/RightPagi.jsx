@@ -4,6 +4,15 @@ import { DashArrow } from "@/components/iconsvg";
 const RightPagiTop = () => {
   const [changeDate, setChange] = useState(1);
 
+  const dates = [
+    { date: "Last 10 days" },
+    // { date: "Last 30 days" },
+    // { date: "bg-blue-500" },
+    // { date: "Yesterday" },
+    // { date: "Today" },
+    // { date: "Las 3 months" },
+  ];
+
   const prev = () => {
     setChange(changeDate - 1);
   };
@@ -15,18 +24,17 @@ const RightPagiTop = () => {
   return (
     <div className="">
       <div className=" flex justify-between mb-5">
-        <div>
+        <div className="flex items-center">
           <button onClick={prev} className="btn bg-[#E5E7EB]">
-            {"<"}
+            next
           </button>
-          <button className=" mx-3">
-            {changeDate === 0 && "Last 10 days"}
-            {changeDate === 1 && "Last 30 days"}
-            {changeDate === 2 && "Yesterday"}
-            {changeDate === 3 && "Today"}
-          </button>
+          <p className="mx-3">
+            {dates.map((e) => (
+              <p key={e.date}>{e.date}</p>
+            ))}
+          </p>
           <button onClick={next} className="btn bg-[#E5E7EB]">
-            {">"}
+            prev
           </button>
         </div>
         <div className="flex gap-10 rounded-md border-[1px] px-3 items-center bg-[#F9FAFB]">
@@ -36,7 +44,7 @@ const RightPagiTop = () => {
       </div>
       <div className="bg-white px-4 py-2 flex rounded-xl justify-between border-[1px] items-center">
         <div className="flex items-center gap-3">
-          <input type="checkbox" checked="checked" className="checkbox ml-3" />
+          <input type="checkbox" checked="" className="checkbox ml-3" />
           <h2 className="font-medium">Select all</h2>
         </div>
         <h4 className="text-gray-500 font-semibold">- 35,000₮</h4>

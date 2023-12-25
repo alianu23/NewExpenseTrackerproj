@@ -1,84 +1,110 @@
-"use client";
-import React, { useContext } from "react";
+import React from "react";
+import { Bar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import {
-  Chart as ChartJS,
   ArcElement,
-  Tooltip,
-  Legend,
-  CategoryScale,
-  LinearScale,
   BarElement,
-  Title,
+  CategoryScale,
+  Chart,
+  Legend,
+  LinearScale,
 } from "chart.js";
-import { Bar, Doughnut } from "react-chartjs-2";
-import { CategoryContext } from "@/context/CategoryContext";
-import { TransactionContext } from "@/context/TransactionContext";
 
-ChartJS.register(
-  ArcElement,
-  Tooltip,
-  Legend,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title
-);
-
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-};
-
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-export const datas = {
-  labels,
-  datasets: [
-    {
-      label: "Dataset 1",
-      data: [3100000],
-      backgroundColor: "rgba(132, 204, 22, 1)",
-    },
-    {
-      label: "Dataset 2",
-      data: [2000000],
-      backgroundColor: "rgba(249, 115, 22, 1)",
-    },
-  ],
-};
+Chart.register(CategoryScale, LinearScale, BarElement, ArcElement, Legend);
 
 const MiddleInfo = () => {
-  const { transactions } = useContext(TransactionContext);
+  const data1 = {
+    labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets: [
+      {
+        label: "Income",
+        backgroundColor: "#85CC16",
+        data: [3000000, 3000000, 3000000, 3000000, 3000000, 3000000, 3000000],
+      },
+      {
+        label: "Expense",
+        backgroundColor: "#F97316",
+        data: [2000000, 2000000, 2000000, 2000000, 2000000, 2000000, 2000000],
+      },
+    ],
+  };
+
+  const data2 = {
+    datasets: [
+      {
+        data: [15, 15, 15, 15, 15],
+
+        backgroundColor: [
+          "#1C64F2",
+          "#E74694",
+          "#FDBA8C",
+          "#16BDCA",
+          "#F2901C",
+        ],
+      },
+    ],
+  };
+
+  const options1 = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
+  const options2 = {
+    legend: {
+      align: "start",
+      position: "right",
+
+      labels: {
+        display: false,
+        position: "right",
+      },
+    },
+  };
+
+  const dataChart = [
+    { color: "bg-[#1C64F2]", category: "Bills", amount: 5000000 },
+    { color: "bg-[#E74694]", category: "Food", amount: 5000000 },
+    { color: "bg-[#FDBA8C]", category: "Shopping", amount: 5000000 },
+    { color: "bg-[#16BDCA]", category: "Insurance", amount: 5000000 },
+    { color: "bg-[#F2901C]", category: "Clothing", amount: 5000000 },
+  ];
+
   return (
-    <div className="flex my-7 w-full lg:flex-row flex-col ">
-      <div className="flex-1 bg-white w-full p-7 mr-5">
-        <h1 className="border-b-2 pb-3 font-semibold">Income - Expense</h1>
-        <div>
-          <Bar options={options} data={datas} />
+    <div className="w-full grid grid-cols-2 my-10 gap-9">
+      <div className="bg-white rounded-2xl overflow-hidden">
+        <div className="flex items-center gap-2 font-bold p-4 border-b-[1px]">
+          <span>Income - Expense</span>
+        </div>
+        <div className="card bg-white flex justify-center items-center p-4">
+          <Bar data={data1} options={options1} />
         </div>
       </div>
-
-      <div className="flex-1 bg-white ">
-        <div className="flex border-b-2 pb-3 p-7 items-center justify-between">
-          <h1 className="font-semibold">Income - Expense</h1>
-          <h3>Jun 1 - Nov 30</h3>
+      <div className=" bg-white rounded-2xl overflow-hidden">
+        <div className="flex items-center gap-2 font-bold p-4 border-b-[1px]">
+          <span>Income - Expense</span>
         </div>
-
-        <div className="p-3 flex lg:gap-10 gap-2 items-center justify-center">
-          <div className="lg:w-64 lg:h-64 w-32 h-32">
-            <Doughnut data={datas} options={options} />
+        <div className="card bg-white flex flex-row justify-center items-center p-4">
+          <div className="mr-10">
+            <Doughnut options={options2} data={data2} />
           </div>
-          {transactions.map((el) => (
-            <div className="lg:gap-10 gap-3 flex flex-col">
-              <p className="lg:text-lg text-xs">{el.category_img}</p>
-              <p className="lg:text-lg text-xs">{el.amount}</p>
-              <p className="lg:text-lg text-xs">{el.amount}</p>
-            </div>
-          ))}
+          <div className="flex-1 flex-col">
+            {dataChart.map((data) => {
+              return (
+                <div
+                  key={data.category}
+                  className="flex flex-row items-center gap-3 mb-5"
+                >
+                  <div className={`w-5 h-5 rounded-full ${data.color}`}></div>
+                  <h4>{data.category}</h4>
+                  <span className="">{data.amount}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
