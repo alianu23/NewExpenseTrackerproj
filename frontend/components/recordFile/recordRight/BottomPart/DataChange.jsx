@@ -14,7 +14,7 @@ const DataChange = ({ transaction }) => {
         <div className="ml-3">
           <h2 className="font-medium">{transaction.name}</h2>
           <h3 className="text-gray-500 text-xs">
-            {moment(transaction.created_at).startOf("day").fromNow()}
+            {moment(transaction.created_at).format("MMM Do YY")}
           </h3>
         </div>
       </div>

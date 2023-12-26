@@ -35,7 +35,7 @@ import { BiPencil } from "react-icons/bi";
 import { BsGlobe, BsMenuAppFill } from "react-icons/bs";
 import { GiDeliveryDrone } from "react-icons/gi";
 
-export const getIcons = (iconName = "home", iconColor = "green") => {
+export const getIcons = (iconName, iconColor) => {
   const icons = [
     { icon: <FaGift size={30} color={iconColor} />, name: "gift" },
     { icon: <FaHome size={30} color={iconColor} />, name: "home" },

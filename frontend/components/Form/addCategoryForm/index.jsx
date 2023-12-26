@@ -12,7 +12,6 @@ const CategoryForm = ({ open, closeForm }) => {
     handleColor,
     setShowIcon,
     createCategory,
-    createCtr,
     setInputValue,
     inputValue,
   } = useContext(CategoryContext);

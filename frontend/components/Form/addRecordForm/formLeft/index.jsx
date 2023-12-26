@@ -88,19 +88,6 @@ const FormLeft = ({ closeForm }) => {
             />
           </ul>
         </details>
-        <div>
-          <input
-            type="text"
-            className="w-full py-4 px-3"
-            name="category_id"
-            placeholder="category"
-            value={transactionData.category_id}
-            onChange={(e) => {
-              console.log("Change", transactionData);
-              changeTransactionData(e.target.name, e.target.value);
-            }}
-          />
-        </div>
         <div className="flex">
           <div className="flex-1">
             <label className="label">
