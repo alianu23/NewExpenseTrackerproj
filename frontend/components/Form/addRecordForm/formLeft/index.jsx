@@ -7,11 +7,14 @@ import CategoryForm from "../../addCategoryForm";
 import RecordIcons from "./RecordIcons";
 import { TransactionContext } from "@/context/TransactionContext";
 import { CategoryContext } from "@/context/CategoryContext";
+import CatIcon from "./CatIcon";
 
 const FormLeft = ({ closeForm }) => {
   const { transactionData, changeTransactionData, addTransaction } =
     useContext(TransactionContext);
   const { getCategories } = useContext(CategoryContext);
+
+  const [selectedCat, setSelectedCat] = useState(null);
 
   // const closeForm = () => {
   //   setOpen(false);
@@ -70,13 +73,19 @@ const FormLeft = ({ closeForm }) => {
         <details className="dropdown w-full">
           <summary className="m-1 flex items-center bg-[#F9FAFB] justify-between btn ">
             <div className="flex justify-between w-full">
-              Find or Choose category
+              {!selectedCat && "Find or Choose category"}
+              {selectedCat && (
+                <CatIcon name={selectedCat.name} color={selectedCat.color} />
+              )}
               <DashArrow />
             </div>
           </summary>
 
           <ul className="shadow menu w-full dropdown-content z-[1] bg-base-100 rounded-box">
-            <RecordIcons changeTransactionData={changeTransactionData} />
+            <RecordIcons
+              changeTransactionData={changeTransactionData}
+              setSelectedCat={setSelectedCat}
+            />
           </ul>
         </details>
         <div>

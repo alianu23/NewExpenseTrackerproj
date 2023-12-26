@@ -22,7 +22,6 @@ import {
   PiNumberCircleSevenFill,
   PiNumberFiveFill,
   PiOrangeSliceFill,
-  PiQuestionFill,
   PiWatchFill,
 } from "react-icons/pi";
 import {
@@ -30,12 +29,13 @@ import {
   MdOutlineShoppingBag,
   MdBadge,
   MdHourglassTop,
+  MdAttachMoney,
 } from "react-icons/md";
 import { BiPencil } from "react-icons/bi";
 import { BsGlobe, BsMenuAppFill } from "react-icons/bs";
 import { GiDeliveryDrone } from "react-icons/gi";
 
-export const getIcons = (iconName, iconColor) => {
+export const getIcons = (iconName = "home", iconColor = "green") => {
   const icons = [
     { icon: <FaGift size={30} color={iconColor} />, name: "gift" },
     { icon: <FaHome size={30} color={iconColor} />, name: "home" },
@@ -64,7 +64,7 @@ export const getIcons = (iconName, iconColor) => {
     },
     { icon: <PiNumberFiveFill size={30} color={iconColor} />, name: "five" },
     { icon: <PiOrangeSliceFill size={30} color={iconColor} />, name: "orange" },
-    { icon: <PiQuestionFill size={30} color={iconColor} />, name: "question" },
+    { icon: <MdAttachMoney size={30} color={iconColor} />, name: "money" },
     { icon: <PiWatchFill size={30} color={iconColor} />, name: "watch" },
     { icon: <MdChildFriendly size={30} color={iconColor} />, name: "child" },
     { icon: <MdOutlineShoppingBag size={30} color={iconColor} />, name: "bag" },
@@ -117,7 +117,7 @@ export const icons = [
   { icon: <PiNumberCircleSevenFill size={30} />, name: "seven" },
   { icon: <PiNumberFiveFill size={30} />, name: "five" },
   { icon: <PiOrangeSliceFill size={30} />, name: "orange" },
-  { icon: <PiQuestionFill size={30} />, name: "question" },
+  { icon: <MdAttachMoney size={30} />, name: "money" },
   { icon: <PiWatchFill size={30} />, name: "watch" },
   { icon: <MdChildFriendly size={30} />, name: "child" },
   { icon: <MdOutlineShoppingBag size={30} />, name: "bag" },

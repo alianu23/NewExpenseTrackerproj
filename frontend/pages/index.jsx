@@ -5,13 +5,16 @@ import TopInfo from "@/components/dashboardComp/TopInfo";
 import MiddleInfo from "@/components/dashboardComp/middleChartPart/MiddleInfo";
 import BottomInfo from "@/components/dashboardComp/bottom/BottomInfo";
 import { TransactionContext } from "@/context/TransactionContext";
+import { CategoryContext } from "@/context/CategoryContext";
 export default function Home() {
   const { getAllTransaction, reFetch, getSum } = useContext(TransactionContext);
+  const { getCategories } = useContext(CategoryContext);
 
   useEffect(() => {
     console.log("GAT");
     getAllTransaction();
     getSum();
+    getCategories();
   }, [reFetch]);
 
   return (

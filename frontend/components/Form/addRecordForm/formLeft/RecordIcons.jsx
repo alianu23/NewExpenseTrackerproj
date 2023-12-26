@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { getIcons } from "@/utils";
 import { CategoryContext } from "@/context/CategoryContext";
+import CatIcon from "./CatIcon";
 
-const RecordIcons = ({ changeTransactionData }) => {
+const RecordIcons = ({ changeTransactionData, setSelectedCat }) => {
   const { category } = useContext(CategoryContext);
   return (
     <div>
@@ -13,11 +14,13 @@ const RecordIcons = ({ changeTransactionData }) => {
           onClick={(e) => {
             e.preventDefault();
             console.log("CategoryId", el.id);
+            setSelectedCat(el);
             changeTransactionData("category_id", el.id);
           }}
         >
-          {getIcons(el.category_img, el.category_color)}
-          {el.name}
+          <CatIcon name={el.category_img} color={el.category_color} />
+          {/* {getIcons(el.category_img, el.category_color)}
+          {el.name} */}
         </button>
       ))}
     </div>

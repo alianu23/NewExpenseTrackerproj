@@ -6,9 +6,9 @@ const category = async (req, res) => {
       req.body;
     await sql`INSERT INTO category ( name, description , category_img , category_color, user_id) VALUES(${name}, ${description} , ${category_img} , ${category_color},${user_id})`;
     res.status(201).json({ message: "Category added" });
-    console.log("CREATED NEW CATEGORY");
+    // console.log("CREATED NEW CATEGORY");
   } catch (error) {
-    console.log("CREATE CATEGORY FAILED", error);
+    // console.log("CREATE CATEGORY FAILED", error);
     res.status(500).json({ message: `${error}-iim aldaa garlaa` });
   }
 };
@@ -19,7 +19,7 @@ const getAllCategory = async (req, res) => {
 
     res.status(200).json({ message: "success", categories });
   } catch (error) {
-    console.log("ERR", error);
+    // console.log("ERR", error);
     res.status(500).json({ message: "failed" });
   }
 };
@@ -38,7 +38,7 @@ const updateCategory = async (req, res) => {
 const deleteCategory = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log("Delete cat id", id);
+    // console.log("Delete cat id", id);
     await sql`DELETE FROM category WHERE id=${id}`;
     res.status(201).json({ message: "category deleted" });
   } catch (error) {

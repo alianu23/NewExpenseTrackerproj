@@ -5,7 +5,7 @@ const updateRecord = async (req, res) => {
     const { transaction_type, balance, date, time, payee, description } =
       req.body;
     const { userId } = req.params;
-    console.log("body", req.body);
+    // console.log("body", req.body);
     const data =
       await sql`UPDATE transactions SET transaction_type=${transaction_type}, balance=${balance},date=${date}, time=${time}, payee=${payee}, description=${description} WHERE id=${userId} RETURNING *`;
 

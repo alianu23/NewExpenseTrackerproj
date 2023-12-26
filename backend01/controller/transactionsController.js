@@ -2,21 +2,21 @@ const { sql } = require("../config/pgDb");
 
 const getAllTransaction = async (req, res) => {
   const { userId } = req.params;
-  console.log("userId", userId);
+  // console.log("userId", userId);
   try {
     const transactions =
       await sql`SELECT tr.name, tr.amount, tr.created_at,tr.id, tr.transaction_type, ct.category_img, ct.category_color FROM transactions tr INNER JOIN category ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} ORDER BY created_at DESC`;
     // console.log("TRANSACTIONS", transactions);
     res.status(200).json({ message: "success", transactions });
   } catch (error) {
-    console.log("err", error);
+    // console.log("err", error);
     res.status(500).json({ message: "failed" });
   }
 };
 
 const getSum = async (req, res) => {
   const { userId } = req.params;
-  console.log("expUser", userId);
+  // console.log("expUser", userId);
   try {
     const getSum =
       await sql`SELECT transaction_type, SUM(amount) FROM transactions WHERE user_id = ${userId} GROUP BY transaction_type`;
@@ -59,7 +59,7 @@ const createTransactions = async (req, res) => {
   }
 };
 const deleteTransaction = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const { id } = req.params;
     await sql`DELETE FROM transactions WHERE id=${id}`;
@@ -76,6 +76,32 @@ const updateTransaction = async (req, res) => {
     res.status(201).json({ message: "transaction updated" });
   } catch (error) {
     res.status(500).json({ message: `${error}-iim aldaa garlaa` });
+  }
+};
+
+const monthSum = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const sum =
+      await sql`SELECT transaction_type, EXTRACT(year FROM updated_at) as jil, EXTRACT(month FROM updated_at) as sar, SUM(amount) FROM transactions WHERE user_id=${userId} GROUP BY jil, sar, transaction_type`;
+    const exp = sum.filter((el) => el.transaction_type === "EXP")[0];
+    const inc = sum.filter((el) => el.transaction_type === "INC")[0];
+
+    res.status(201).json({ message: "success", data: { exp, inc } });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const catSum = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const sum =
+      await sql`SELECT ct.name ,SUM(amount) FROM transaction as tr INNER JOIN category as ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} GROUP BY tr.category_id, ct.name`;
+
+    res.status(201).json({ message: "success", sum });
+  } catch (error) {
+    console.log(error);
   }
 };
 
