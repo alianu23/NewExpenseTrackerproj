@@ -26,21 +26,21 @@ body {
 }
 
 .bg-purple-500 {
-  background-color: purple;
+  background-color: #800080;
 }
 
 .bg-purple-600 {
-  background-color: rgb(185, 35, 185);
+  background-color: #b922b9;
 }
 .bg-blue-500 {
-  background-color: rgb(53, 103, 197);
+  background-color: #3467c5;
 }
 .bg-green-500 {
-  background-color: rgb(141, 221, 22);
+  background-color: #8ddd17;
 }
 .bg-orange-500 {
-  background-color: orange;
+  background-color: #ffa500;
 }
 .bg-red-500 {
-  background-color: red;
+  background-color: #ff0000;
 }

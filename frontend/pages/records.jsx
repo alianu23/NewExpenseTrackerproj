@@ -5,12 +5,17 @@ import { TransactionContext } from "@/context/TransactionContext";
 import { CategoryContext } from "@/context/CategoryContext";
 
 const Records = () => {
-  const { reFetch } = useContext(TransactionContext);
-  const { getCategories } = useContext(CategoryContext);
+  const { getAllTransaction, reFetch } = useContext(TransactionContext);
+  const { getCategories, refresh } = useContext(CategoryContext);
+
+  useEffect(() => {
+    console.log("GAT");
+    getAllTransaction();
+  }, [reFetch]);
 
   useEffect(() => {
     getCategories();
-  }, [reFetch]);
+  }, [refresh]);
 
   return (
     <div className="bg-[#F6F6F6]">

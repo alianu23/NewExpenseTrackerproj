@@ -28,14 +28,6 @@ const getSum = async (req, res) => {
   }
 };
 
-const barTrans = async (req, res) => {
-  const { userId } = req.params;
-  try {
-    const data =
-      await sql`SELECT SUM(amount), name FROM transactions user_id = ${userId}`;
-  } catch (error) {}
-};
-
 const createTransactions = async (req, res) => {
   console.log("USER", req.body);
   try {
@@ -79,7 +71,7 @@ const updateTransaction = async (req, res) => {
   }
 };
 
-const monthSum = async (req, res) => {
+const barChartData = async (req, res) => {
   try {
     const { userId } = req.params;
     const sum =
@@ -93,13 +85,12 @@ const monthSum = async (req, res) => {
   }
 };
 
-const catSum = async (req, res) => {
+const doughnutData = async (req, res) => {
   try {
     const { userId } = req.params;
-    const sum =
-      await sql`SELECT ct.name ,SUM(amount) FROM transaction as tr INNER JOIN category as ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} GROUP BY tr.category_id, ct.name`;
-
-    res.status(201).json({ message: "success", sum });
+    const data =
+      await sql`SELECT ct.category_img ,SUM(amount),ct.category_color FROM transactions as tr INNER JOIN category as ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} GROUP BY tr.category_id, ct.category_img, ct.category_color`;
+    res.status(201).json({ message: "success", data });
   } catch (error) {
     console.log(error);
   }
@@ -111,4 +102,6 @@ module.exports = {
   updateTransaction,
   getAllTransaction,
   getSum,
+  barChartData,
+  doughnutData,
 };

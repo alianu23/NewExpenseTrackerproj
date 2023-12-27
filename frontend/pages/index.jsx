@@ -7,15 +7,21 @@ import BottomInfo from "@/components/dashboardComp/bottom/BottomInfo";
 import { TransactionContext } from "@/context/TransactionContext";
 import { CategoryContext } from "@/context/CategoryContext";
 export default function Home() {
-  const { getAllTransaction, reFetch, getSum } = useContext(TransactionContext);
-  const { getCategories } = useContext(CategoryContext);
+  const { getAllTransaction, reFetch, getSum, getBarData, getDoughnutData } =
+    useContext(TransactionContext);
+  const { getCategories, refresh } = useContext(CategoryContext);
 
   useEffect(() => {
     console.log("GAT");
     getAllTransaction();
     getSum();
-    getCategories();
+    getBarData();
+    getDoughnutData();
   }, [reFetch]);
+
+  useEffect(() => {
+    getCategories();
+  }, [refresh]);
 
   return (
     <div className="bg-[#F6F6F6]">

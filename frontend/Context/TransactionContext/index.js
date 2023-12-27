@@ -69,6 +69,38 @@ const TransactionProvider = ({ children }) => {
     }
   };
 
+  const [getBars, setGetBars] = useState();
+
+  const getBarData = async () => {
+    console.log("getBarData");
+    try {
+      const {
+        data: { data },
+      } = await axios.get(`http://localhost:8008/transactions/bar/` + user.id);
+      console.log("BARCHART", data);
+      setGetBars(data);
+    } catch (error) {
+      console.log("bar chart CTX deer", error);
+    }
+  };
+
+  const [getDoughnuts, setGetDoughnuts] = useState();
+
+  const getDoughnutData = async () => {
+    console.log("getDoughnutData");
+    try {
+      const {
+        data: { data },
+      } = await axios.get(
+        `http://localhost:8008/transactions/doughnut/` + user.id
+      );
+      console.log("DOUGHNUT", data);
+      setGetDoughnuts(data);
+    } catch (error) {
+      console.log("doughnut chart CTX deer", error);
+    }
+  };
+
   return (
     <TransactionContext.Provider
       value={{
@@ -81,6 +113,10 @@ const TransactionProvider = ({ children }) => {
         getSums,
         reFetch,
         setReFetch,
+        getBarData,
+        getDoughnutData,
+        getDoughnuts,
+        getBars,
       }}
     >
       {children}

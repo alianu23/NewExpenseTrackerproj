@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { UserContext } from "../UserProvider";
 import { FaHome } from "react-icons/fa";
@@ -14,7 +14,7 @@ const CategoryProvider = ({ children }) => {
   const [refresh, setRefresh] = useState(false);
   const [showIcon, setShowIcon] = useState(<FaHome size={30} />);
   const [createCtr, setCreateCtr] = useState({
-    name: "ner",
+    name: "iconname",
     description: "daraa n zasah bhaa",
     category_img: "",
     category_color: "",
@@ -48,8 +48,10 @@ const CategoryProvider = ({ children }) => {
   const getCategories = async () => {
     const {
       data: { categories },
-    } = await axios.get("http://localhost:8008/categories");
-    console.log("RES", categories);
+    } = await axios.get("http://localhost:8008/categories/" + user.id);
+
+    // console.log("RES", categories);
+    setRefresh(!refresh);
     setCategory(categories);
   };
 
@@ -77,6 +79,7 @@ const CategoryProvider = ({ children }) => {
         createCtr,
         setShowIcon,
         setInputValue,
+        refresh,
       }}
     >
       {children}

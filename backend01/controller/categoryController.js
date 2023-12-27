@@ -14,8 +14,10 @@ const category = async (req, res) => {
 };
 
 const getAllCategory = async (req, res) => {
+  const { userId } = req.params;
   try {
-    const categories = await sql`SELECT * FROM category`;
+    const categories =
+      await sql`SELECT * FROM category WHERE user_id=${userId}`;
 
     res.status(200).json({ message: "success", categories });
   } catch (error) {

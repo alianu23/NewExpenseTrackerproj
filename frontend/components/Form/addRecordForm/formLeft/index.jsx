@@ -10,6 +10,7 @@ import { CategoryContext } from "@/context/CategoryContext";
 import CatIcon from "./CatIcon";
 
 const FormLeft = ({ closeForm }) => {
+  const [closeIcon, setCloseIcon] = useState(true);
   const { transactionData, changeTransactionData, addTransaction } =
     useContext(TransactionContext);
   const { getCategories } = useContext(CategoryContext);
@@ -70,7 +71,10 @@ const FormLeft = ({ closeForm }) => {
           />
         </div>
         <h1 className="mt-4 mb-2 font-semibold">Category</h1>
-        <details className="dropdown w-full">
+        <details
+          onChange={closeIcon}
+          className="dropdown dropdown-content w-full"
+        >
           <summary className="m-1 flex items-center bg-[#F9FAFB] justify-between btn ">
             <div className="flex justify-between items-center w-full">
               {!selectedCat && "Find or Choose category"}
