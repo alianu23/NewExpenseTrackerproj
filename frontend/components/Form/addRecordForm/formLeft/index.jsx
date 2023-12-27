@@ -72,10 +72,13 @@ const FormLeft = ({ closeForm }) => {
         <h1 className="mt-4 mb-2 font-semibold">Category</h1>
         <details className="dropdown w-full">
           <summary className="m-1 flex items-center bg-[#F9FAFB] justify-between btn ">
-            <div className="flex justify-between w-full">
+            <div className="flex justify-between items-center w-full">
               {!selectedCat && "Find or Choose category"}
               {selectedCat && (
-                <CatIcon name={selectedCat.name} color={selectedCat.color} />
+                <CatIcon
+                  category_img={selectedCat.category_img}
+                  category_color={selectedCat.category_color}
+                />
               )}
               <DashArrow />
             </div>

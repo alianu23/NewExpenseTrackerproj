@@ -18,7 +18,10 @@ const RecordIcons = ({ changeTransactionData, setSelectedCat }) => {
             changeTransactionData("category_id", el.id);
           }}
         >
-          <CatIcon name={el.category_img} color={el.category_color} />
+          <CatIcon
+            category_img={el.category_img}
+            category_color={el.category_color}
+          />
           {/* {getIcons(el.category_img, el.category_color)}
           {el.name} */}
         </button>

@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { TransactionContext } from "@/context/TransactionContext";
 import DataChange from "./DataChange";
 
 const BottomRecord = () => {
   const { transactions } = useContext(TransactionContext);
+
+  useEffect(() => {}, [transactions]);
   return (
     <>
       <div>

@@ -7,7 +7,6 @@ import BottomRecord from "./recordRight/BottomPart/BottomRecord";
 import { TransactionContext } from "@/context/TransactionContext";
 
 const RecordInfo = () => {
-  useEffect(() => {}, []);
   return (
     <div className="flex container py-6 mx-auto">
       <div className="flex-0.5 border-2 bg-[#F9FAFB] px-5 py-8 rounded-xl">
