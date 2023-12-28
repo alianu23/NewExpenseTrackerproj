@@ -7,7 +7,9 @@ const DataChange = ({ transaction }) => {
   return (
     <div className="border-b-2 py-6 flex justify-between items-center">
       <div className="flex items-center">
-        <div className={`rounded-full ${transaction.category_color} p-2 ml-4`}>
+        <div
+          className={`rounded-full bg-[${transaction.category_color}] p-2 ml-4`}
+        >
           {getIcons(transaction?.category_img, "white")}
         </div>
 

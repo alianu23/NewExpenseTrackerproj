@@ -128,12 +128,12 @@ export const icons = [
   { icon: <BsGlobe size={30} />, name: "globe" },
 ];
 export const colors = [
-  "bg-purple-500",
-  "bg-red-500 ",
-  "bg-blue-500",
-  "bg-purple-600",
-  "bg-green-500",
-  "bg-orange-500",
+  "#800080",
+  "#FF0000",
+  "#3467C5",
+  "#B922B9",
+  "#8DDD17",
+  "#FFA500",
 ];
 
 export const formatDate = (dateStr) => {

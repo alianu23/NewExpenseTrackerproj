@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { UserContext } from "../UserProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { DoughnutData } from "@/components/Data";
 
 export const TransactionContext = createContext(null);
 
@@ -46,7 +47,7 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { transactions },
-      } = await axios.get(`http://localhost:8008/transactions/` + user.id);
+      } = await axios.get("http://localhost:8008/transactions/" + user.id);
       // console.log("TRANSACTION", transactions);
       setTransactions(transactions);
       // toast.success("Record successfully added");
@@ -61,24 +62,24 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { data },
-      } = await axios.get(`http://localhost:8008/transactions/sum/` + user.id);
-      console.log("123456", data);
+      } = await axios.get("http://localhost:8008/transactions/sum/" + user.id);
+      // console.log("123456", data);
       setGetSums(data);
     } catch (error) {
       console.log("expsum deer", error);
     }
   };
 
-  const [getBars, setGetBars] = useState();
+  const [getBchartData, setGetBchartData] = useState([]);
 
   const getBarData = async () => {
     console.log("getBarData");
     try {
       const {
         data: { data },
-      } = await axios.get(`http://localhost:8008/transactions/bar/` + user.id);
+      } = await axios.get("http://localhost:8008/transactions/bar/" + user.id);
       console.log("BARCHART", data);
-      setGetBars(data);
+      setGetBchartData(data);
     } catch (error) {
       console.log("bar chart CTX deer", error);
     }
@@ -92,7 +93,7 @@ const TransactionProvider = ({ children }) => {
       const {
         data: { data },
       } = await axios.get(
-        `http://localhost:8008/transactions/doughnut/` + user.id
+        "http://localhost:8008/transactions/doughnut/" + user.id
       );
       console.log("DOUGHNUT", data);
       setGetDoughnuts(data);
@@ -101,6 +102,7 @@ const TransactionProvider = ({ children }) => {
     }
   };
 
+  // console.log("getBars CTX", getExpBarData);
   return (
     <TransactionContext.Provider
       value={{
@@ -116,7 +118,7 @@ const TransactionProvider = ({ children }) => {
         getBarData,
         getDoughnutData,
         getDoughnuts,
-        getBars,
+        getBchartData,
       }}
     >
       {children}

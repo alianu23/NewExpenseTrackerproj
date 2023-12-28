@@ -14,7 +14,7 @@
     "@mui/material": "^5.14.18",
     "@mui/x-charts": "^6.18.1",
     "axios": "^1.6.2",
-    "chart.js": "^4.4.0",
+    "chart.js": "^4.4.1",
     "chartjs-2": "^0.0.1-security",
     "moment": "^2.29.4",
     "next": "14.0.2",

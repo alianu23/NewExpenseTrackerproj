@@ -74,12 +74,9 @@ const updateTransaction = async (req, res) => {
 const barChartData = async (req, res) => {
   try {
     const { userId } = req.params;
-    const sum =
-      await sql`SELECT transaction_type, EXTRACT(year FROM updated_at) as jil, EXTRACT(month FROM updated_at) as sar, SUM(amount) FROM transactions WHERE user_id=${userId} GROUP BY jil, sar, transaction_type`;
-    const exp = sum.filter((el) => el.transaction_type === "EXP")[0];
-    const inc = sum.filter((el) => el.transaction_type === "INC")[0];
-
-    res.status(201).json({ message: "success", data: { exp, inc } });
+    const data =
+      await sql`SELECT transaction_type, EXTRACT(month FROM updated_at) as month, SUM(amount) FROM transactions WHERE user_id=${userId} GROUP BY month, transaction_type`;
+    res.status(201).json({ message: "success", data });
   } catch (error) {
     console.log(error);
   }

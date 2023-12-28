@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { array2 } from "@/components/data/index.jsx";
+
 import Checkbox from "./Checkbox";
 import RecordForm from "@/components/form/addRecordForm";
+import { CheckboxIncExp } from "@/components/Data";
 
 const RecordSmall = () => {
   const [open, setOpen] = useState(false);
@@ -42,7 +43,7 @@ const RecordSmall = () => {
       />
       <div className="my-5">
         <h1 className="font-semibold text-slate-700">Types</h1>
-        {array2.map((el) => (
+        {CheckboxIncExp.map((el) => (
           <Checkbox name={el.name} key={el.id} />
         ))}
       </div>

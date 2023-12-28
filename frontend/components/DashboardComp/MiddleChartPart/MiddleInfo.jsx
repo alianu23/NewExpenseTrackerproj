@@ -10,31 +10,70 @@ import {
   LinearScale,
 } from "chart.js";
 import { TransactionContext } from "@/context/TransactionContext";
+import { keys } from "@mui/system";
 
 Chart.register(CategoryScale, LinearScale, BarElement, ArcElement, Legend);
 
 const MiddleInfo = () => {
-  const { getDoughnuts, getBars } = useContext(TransactionContext);
+  const { getDoughnuts, getBarData, getDoughnutData, getBchartData } =
+    useContext(TransactionContext);
 
-  const doughnutData = getDoughnuts.map((el) => {
-    return el.sum;
-  });
-  const doughnutColor = getDoughnuts.map((el) => {
-    return el.category_img;
-  });
+  const [data, setData] = useState([]);
+  const [colorData, setColorData] = useState([]);
+  const [incDataName, setIncDataName] = useState([]);
+  const [incomeSum, setIncomeSum] = useState([]);
+  const [expDataName, setExpDataName] = useState([]);
+  const [expenseSum, setExpenseSum] = useState([]);
+  const [monthBar, setMonthBar] = useState({});
 
+  useEffect(() => {
+    getBarData();
+    getDoughnutData();
+  }, []);
+
+  useEffect(() => {
+    if (getDoughnuts) {
+      setData(
+        getDoughnuts.map((e) => {
+          return e.sum;
+        })
+      );
+      setColorData(getDoughnuts.map((e) => e.category_color));
+    }
+  }, [getDoughnuts]);
+
+  useEffect(() => {
+    if (getBchartData) {
+      setExpenseSum(
+        getBchartData.filter((e) => e.transaction_type === "EXP")[0].sum
+      );
+      //const exp = getSum.filter((el) => el.transaction_type === "EXP")[0].sum;
+      setExpDataName(getBchartData.map((e) => e.transaction_type));
+    }
+    if (getBchartData) {
+      setIncomeSum(
+        getBchartData.map((e) => {
+          return e.sum;
+        })
+      );
+      setIncDataName(getBchartData.map((e) => e.transaction_type));
+      setMonthBar(getBchartData.map((e) => e.month));
+    }
+  }, [getBchartData]);
+
+  // console.log("getBars", getExpBarData);
   const data1 = {
-    labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: monthBar,
     datasets: [
       {
         label: "Income",
         backgroundColor: "#85CC16",
-        data: [3000000, 3000000, 3000000, 3000000, 3000000, 3000000, 3000000],
+        data: incomeSum,
       },
       {
         label: "Expense",
         backgroundColor: "#F97316",
-        data: [2000000, 2000000, 2000000, 2000000, 2000000, 2000000, 2000000],
+        data: expenseSum,
       },
     ],
   };
@@ -42,16 +81,9 @@ const MiddleInfo = () => {
   const data2 = {
     datasets: [
       {
-        data: doughnutData,
+        data: data,
 
-        backgroundColor: [
-          "#800080",
-          "#3467C5",
-          "#3467C5",
-          "#B922B9",
-          "#8DDD17",
-          "#FFA500",
-        ],
+        backgroundColor: colorData,
       },
     ],
   };
@@ -95,14 +127,14 @@ const MiddleInfo = () => {
             <Doughnut options={options2} data={data2} />
           </div>
           <div className="flex-1 flex-col">
-            {getDoughnuts.map((data) => {
+            {getDoughnuts?.map((data) => {
               return (
                 <div
                   key={data.id}
                   className="flex flex-row justify-around items-center mb-5"
                 >
                   <div
-                    className={`w-5 h-5 rounded-full ${data.category_color}`}
+                    className={`w-5 h-5 rounded-full bg-[${data.category_color}]`}
                   ></div>
                   <div>{data.category_img}</div>
                   <div>{data.sum}</div>

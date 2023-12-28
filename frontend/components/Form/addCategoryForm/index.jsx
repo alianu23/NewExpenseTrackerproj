@@ -54,7 +54,7 @@ const CategoryForm = ({ open, closeForm }) => {
                       <div
                         key={color}
                         onClick={() => handleColor(color)}
-                        className={`w-9 h-9 cursor-pointer hover:bg-opacity-30 rounded-full ${color}`}
+                        className={`w-9 h-9 cursor-pointer hover:bg-opacity-30 rounded-full bg-[${color}]`}
                       ></div>
                     );
                   })}
