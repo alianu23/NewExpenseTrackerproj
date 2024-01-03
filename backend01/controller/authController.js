@@ -43,11 +43,7 @@ const signin = async (req, res) => {
   }
 };
 
-const get = (req, res) => {
-  res.status(201).send("Hello your connected expense tracker app");
-};
-
-module.exports = { signup, get, signin };
+module.exports = { signup, signin };
 
 //encrypt - nuutslah
 //decrypt - nuutslalaas gargah

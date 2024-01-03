@@ -1,4 +1,5 @@
 import axios from "axios";
+import myAxios from "../../utils/axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { UserContext } from "../UserProvider";
@@ -34,7 +35,7 @@ const CategoryProvider = ({ children }) => {
 
   const createCategory = async () => {
     try {
-      const { data } = await axios.post("http://localhost:8008/categories", {
+      const { data } = await myAxios.post("/categories", {
         ...createCtr,
         user_id: user.id,
       });
@@ -61,7 +62,7 @@ const CategoryProvider = ({ children }) => {
   const getCategories = async () => {
     const {
       data: { categories },
-    } = await axios.get("http://localhost:8008/categories/" + user.id);
+    } = await myAxios.get("/categories/" + user.id);
 
     // console.log("RES", categories);
     setRefresh(!refresh);
@@ -70,9 +71,7 @@ const CategoryProvider = ({ children }) => {
 
   const deleteCategories = async () => {
     try {
-      const data = await axios.delete(
-        "http://localhost:8008/categories/" + category.id
-      );
+      const data = await myAxios.delete("/categories/" + category.id);
       setRefresh(!refresh);
     } catch (error) {}
   };

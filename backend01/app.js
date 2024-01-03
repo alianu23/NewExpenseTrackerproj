@@ -22,6 +22,9 @@ app.use("/api/image", imgRoutes);
 app.use("/transactions/", transansactionRoutes);
 app.use("/users/", userRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Welcome Income and Expense API.");
+});
 app.listen(PORT, () => {
   console.log(`Сервер ${PORT} дээр аслаа`);
 });

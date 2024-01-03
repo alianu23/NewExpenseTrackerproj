@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { UserContext } from "../UserProvider";
 import axios from "axios";
+import myAxios from "../../utils/axios";
 import { toast } from "react-toastify";
 import { DoughnutData } from "@/components/Data";
 
@@ -47,7 +48,7 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { transactions },
-      } = await axios.get("http://localhost:8008/transactions/" + user.id);
+      } = await myAxios.get("/transactions/" + user.id);
       // console.log("TRANSACTION", transactions);
       setTransactions(transactions);
       // toast.success("Record successfully added");
@@ -62,7 +63,7 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { data },
-      } = await axios.get("http://localhost:8008/transactions/sum/" + user.id);
+      } = await myAxios.get("/transactions/sum/" + user.id);
       // console.log("123456", data);
       setGetSums(data);
     } catch (error) {
@@ -77,7 +78,7 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { barChart },
-      } = await axios.get("http://localhost:8008/transactions/bar/" + user.id);
+      } = await myAxios.get("/transactions/bar/" + user.id);
       console.log("BARCHART", barChart);
       setGetBchartData(barChart);
     } catch (error) {
@@ -92,9 +93,7 @@ const TransactionProvider = ({ children }) => {
     try {
       const {
         data: { data },
-      } = await axios.get(
-        "http://localhost:8008/transactions/doughnut/" + user.id
-      );
+      } = await myAxios.get("/transactions/doughnut/" + user.id);
       console.log("DOUGHNUT", data);
       setGetDoughnuts(data);
     } catch (error) {

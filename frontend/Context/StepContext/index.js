@@ -3,6 +3,7 @@ import axios from "axios";
 import { UserContext } from "../UserProvider";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import myAxios from "../../utils/axios";
 
 const { createContext, useState } = require("react");
 
@@ -26,13 +27,10 @@ export const StepProvider = ({ children }) => {
   const goToDashboard = async () => {
     console.log("sjafgasj", user);
     try {
-      const { data } = await axios.put(
-        `http://localhost:8008/users/` + user.id,
-        {
-          currency_type: stepData.currency_type,
-          balance: stepData.balance,
-        }
-      );
+      const { data } = await myAxios.put(`/users/` + user.id, {
+        currency_type: stepData.currency_type,
+        balance: stepData.balance,
+      });
       console.log("jjjj", data);
       setUser(data.user);
       router.push("/");
