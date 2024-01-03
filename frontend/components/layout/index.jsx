@@ -5,7 +5,7 @@ import Currency from "../sign-up-step/Currency";
 import Finish from "../sign-up-step/Finish";
 import LogoBig from "../logo/LogoBig";
 
-import { StepContext } from "../../context/StepContext";
+import { StepContext } from "@/context/StepContext";
 
 const SignUpSteps = () => {
   const { step, changeStep, goToDashboard } = useContext(StepContext);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { DefLogo } from "../logo/Logo";
-import RecordForm from "../form/addRecordForm";
+import RecordForm from "@/components/Form/addRecordForm";
 import Profile from "./navbarMenu";
 
 const navigations = [
