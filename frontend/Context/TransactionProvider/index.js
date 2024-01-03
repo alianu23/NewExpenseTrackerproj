@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { UserContext } from "../UserProvider";
+import { UserContext } from "@/Context/UserProvider";
 import axios from "axios";
 import myAxios from "../../utils/axios";
 import { toast } from "react-toastify";
