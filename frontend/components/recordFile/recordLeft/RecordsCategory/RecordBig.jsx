@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import RecordCategory from "./RecordCategory";
 import CategoryForm from "@/components/form/addCategoryForm";
-import { CategoryContext } from "../../../../context/CategoryProvider";
+import { CategoryContext } from "../../../../Context/CategoryProvider";
 
 const RecordBig = () => {
   const { category, selectedCategories, onSelectCategory } =

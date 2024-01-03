@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { DashArrow } from "@/components/iconsvg";
 
 import RecordIcons from "./RecordIcons";
-import { TransactionContext } from "@/context/TransactionProvider";
-import { CategoryContext } from "@/context/CategoryProvider";
+import { TransactionContext } from "@/Context/TransactionProvider";
+import { CategoryContext } from "@/Context/CategoryProvider";
 import CatIcon from "./CatIcon";
 
 const FormLeft = ({ closeForm }) => {

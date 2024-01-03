@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { IconOne, IconTwo, IconThree, IconFour } from "../iconsvg";
-import { UserContext } from "@/context/UserProvider";
+import { UserContext } from "@/Context/UserProvider";
 import LogoWhite from "../iconsvg/LogoWhite";
 import Shape from "../iconsvg/shape";
-import { TransactionContext } from "@/context/TransactionProvider";
+import { TransactionContext } from "@/Context/TransactionProvider";
 import { thousandify } from "@/utils";
 
 const TopInfo = () => {

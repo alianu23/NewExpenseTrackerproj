@@ -4,7 +4,7 @@ import Link from "next/link";
 import { DefLogo } from "../logo/Logo";
 import RecordForm from "@/components/Form/addRecordForm";
 import Profile from "./navbarMenu";
-import { UserContext } from "@/context/UserProvider";
+import { UserContext } from "@/Context/UserProvider";
 
 const navigations = [
   { name: "Dashboard", path: "/" },

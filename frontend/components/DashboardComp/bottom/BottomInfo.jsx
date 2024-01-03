@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import Bottom from "./BottomInfoData";
-import { TransactionContext } from "@/context/TransactionProvider";
+import { TransactionContext } from "@/Context/TransactionProvider";
 
 const BottomInfo = () => {
   const { transactions } = useContext(TransactionContext);

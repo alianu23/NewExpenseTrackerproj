@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 
-import { TransactionContext } from "@/context/TransactionProvider";
+import { TransactionContext } from "@/Context/TransactionProvider";
 import DataChange from "./DataChange";
-import { CategoryContext } from "../../../../context/CategoryProvider";
+import { CategoryContext } from "../../../../Context/CategoryProvider";
 
 const BottomRecord = () => {
   const { transactions } = useContext(TransactionContext);

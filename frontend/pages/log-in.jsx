@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import Logo from "@/components/logo/Logo";
-import { UserContext } from "@/context/UserProvider";
+import { UserContext } from "@/Context/UserProvider";
 
 export default function LogIn() {
   const router = useRouter();

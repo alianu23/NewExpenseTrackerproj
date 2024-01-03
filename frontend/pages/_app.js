@@ -1,10 +1,10 @@
-import UserProvider from "@/context/UserProvider";
+import UserProvider from "@/Context/UserProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/globals.css";
-import { StepProvider } from "@/context/StepProvider";
-import TransactionProvider from "@/context/TransactionProvider";
-import CategoryProvider from "../context/CategoryProvider";
+import { StepProvider } from "@/Context/StepProvider";
+import TransactionProvider from "@/Context/TransactionProvider";
+import CategoryProvider from "../Context/CategoryProvider";
 
 export default function App({ Component, pageProps }) {
   return (
