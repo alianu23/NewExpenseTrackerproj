@@ -95,6 +95,12 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    if (!user) {
+      router.push("/log-in");
+    }
+  }, [user]);
+
   return (
     <UserContext.Provider
       value={{
