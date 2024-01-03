@@ -18,13 +18,13 @@ const MiddleInfo = () => {
   const { getDoughnuts, getBarData, getDoughnutData, getBchartData } =
     useContext(TransactionContext);
 
-  const [data, setData] = useState([]);
-  const [colorData, setColorData] = useState([]);
+  const [data, setData] = useState([null]);
+  const [colorData, setColorData] = useState(["black"]);
   const [incDataName, setIncDataName] = useState([]);
   const [incomeSum, setIncomeSum] = useState([]);
   const [expDataName, setExpDataName] = useState([]);
   const [expenseSum, setExpenseSum] = useState([]);
-  const [monthBar, setMonthBar] = useState({});
+  const [monthBar, setMonthBar] = useState([]);
 
   useEffect(() => {
     getBarData();
@@ -34,46 +34,49 @@ const MiddleInfo = () => {
   useEffect(() => {
     if (getDoughnuts) {
       setData(
-        getDoughnuts.map((e) => {
+        getDoughnuts?.map((e) => {
           return e.sum;
         })
       );
-      setColorData(getDoughnuts.map((e) => e.category_color));
+      setColorData(getDoughnuts?.map((e) => e.category_color));
     }
   }, [getDoughnuts]);
 
-  useEffect(() => {
-    if (getBchartData) {
-      setExpenseSum(
-        getBchartData.filter((e) => e.transaction_type === "EXP")[0].sum
-      );
-      //const exp = getSum.filter((el) => el.transaction_type === "EXP")[0].sum;
-      setExpDataName(getBchartData.map((e) => e.transaction_type));
-    }
-    if (getBchartData) {
-      setIncomeSum(
-        getBchartData.map((e) => {
-          return e.sum;
-        })
-      );
-      setIncDataName(getBchartData.map((e) => e.transaction_type));
-      setMonthBar(getBchartData.map((e) => e.month));
-    }
-  }, [getBchartData]);
+  // useEffect(() => {
+  //   if (getBchartData) {
+  //     setExpenseSum(
+  //       getBchartData.filter((e) => e.transaction_type === "EXP")[0].sum
+  //     );
+  //     //const exp = getSum.filter((el) => el.transaction_type === "EXP")[0].sum;
+  //     setExpDataName(getBchartData.map((e) => e.transaction_type));
+  //   }
+  //   if (getBchartData) {
+  //     setIncomeSum(
+  //       getBchartData.map((e) => {
+  //         return e.sum;
+  //       })
+  //     );
+  //     setIncDataName(getBchartData.map((e) => e.transaction_type));
+  //     setMonthBar(getBchartData.map((e) => e.month));
+  //   }
+  // }, [getBchartData]);
 
   // console.log("getBars", getExpBarData);
   const data1 = {
-    labels: monthBar,
+    // labels: monthBar,
+    labels: ["december"],
     datasets: [
       {
         label: "Income",
         backgroundColor: "#85CC16",
-        data: incomeSum,
+        // data: incomeSum,
+        data: [10000],
       },
       {
         label: "Expense",
         backgroundColor: "#F97316",
-        data: expenseSum,
+        // data: expenseSum,
+        data: [10000],
       },
     ],
   };
