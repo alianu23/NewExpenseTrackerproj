@@ -7,12 +7,15 @@ import BottomInfo from "@/components/dashboardComp/bottom/BottomInfo";
 import { TransactionContext } from "@/context/TransactionContext";
 import { CategoryContext } from "@/context/CategoryContext";
 export default function Home() {
-  const { getAllTransaction, reFetch, getSum } = useContext(TransactionContext);
+  const { getAllTransaction, reFetch, getSum, getBarData, getDoughnutData } =
+    useContext(TransactionContext);
 
   useEffect(() => {
     console.log("GAT");
     getAllTransaction();
     getSum();
+    getBarData();
+    getDoughnutData();
   }, [reFetch]);
 
   return (

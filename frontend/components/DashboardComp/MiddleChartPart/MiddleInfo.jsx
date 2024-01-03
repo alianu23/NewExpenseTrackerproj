@@ -15,21 +15,10 @@ import { keys } from "@mui/system";
 Chart.register(CategoryScale, LinearScale, BarElement, ArcElement, Legend);
 
 const MiddleInfo = () => {
-  const { getDoughnuts, getBarData, getDoughnutData, getBchartData } =
-    useContext(TransactionContext);
+  const { getDoughnuts, getBchartData } = useContext(TransactionContext);
 
   const [data, setData] = useState([null]);
   const [colorData, setColorData] = useState(["black"]);
-  const [incDataName, setIncDataName] = useState([]);
-  const [incomeSum, setIncomeSum] = useState([]);
-  const [expDataName, setExpDataName] = useState([]);
-  const [expenseSum, setExpenseSum] = useState([]);
-  const [monthBar, setMonthBar] = useState([]);
-
-  useEffect(() => {
-    getBarData();
-    getDoughnutData();
-  }, []);
 
   useEffect(() => {
     if (getDoughnuts) {
@@ -42,41 +31,18 @@ const MiddleInfo = () => {
     }
   }, [getDoughnuts]);
 
-  // useEffect(() => {
-  //   if (getBchartData) {
-  //     setExpenseSum(
-  //       getBchartData.filter((e) => e.transaction_type === "EXP")[0].sum
-  //     );
-  //     //const exp = getSum.filter((el) => el.transaction_type === "EXP")[0].sum;
-  //     setExpDataName(getBchartData.map((e) => e.transaction_type));
-  //   }
-  //   if (getBchartData) {
-  //     setIncomeSum(
-  //       getBchartData.map((e) => {
-  //         return e.sum;
-  //       })
-  //     );
-  //     setIncDataName(getBchartData.map((e) => e.transaction_type));
-  //     setMonthBar(getBchartData.map((e) => e.month));
-  //   }
-  // }, [getBchartData]);
-
-  // console.log("getBars", getExpBarData);
   const data1 = {
-    // labels: monthBar,
-    labels: ["december"],
+    labels: getBchartData?.labels,
     datasets: [
       {
         label: "Income",
-        backgroundColor: "#85CC16",
-        // data: incomeSum,
-        data: [10000],
+        backgroundColor: "#22C55D",
+        data: getBchartData?.incomeData,
       },
       {
         label: "Expense",
-        backgroundColor: "#F97316",
-        // data: expenseSum,
-        data: [10000],
+        backgroundColor: "#DC2625",
+        data: getBchartData?.expenseData,
       },
     ],
   };
@@ -137,7 +103,8 @@ const MiddleInfo = () => {
                   className="flex flex-row justify-around items-center mb-5"
                 >
                   <div
-                    className={`w-5 h-5 rounded-full bg-[${data.category_color}]`}
+                    className={`w-5 h-5 rounded-full`}
+                    style={{ backgroundColor: data.category_color }}
                   ></div>
                   <div>{data.category_img}</div>
                   <div>{data.sum}</div>

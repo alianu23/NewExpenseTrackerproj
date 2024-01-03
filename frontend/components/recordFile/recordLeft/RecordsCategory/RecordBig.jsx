@@ -4,7 +4,8 @@ import CategoryForm from "@/components/form/addCategoryForm";
 import { CategoryContext } from "@/context/CategoryContext";
 
 const RecordBig = () => {
-  const { category } = useContext(CategoryContext);
+  const { category, selectedCategories, onSelectCategory } =
+    useContext(CategoryContext);
   const [open, setOpen] = useState(false);
 
   const closeForm = () => {
@@ -19,7 +20,12 @@ const RecordBig = () => {
         <h1 className="text-slate-400">Clear</h1>
       </div>
       {category.map((el) => (
-        <RecordCategory data={el.name} key={el.id} />
+        <RecordCategory
+          selectedCategories={selectedCategories}
+          onSelectCategory={onSelectCategory}
+          data={el.category_img}
+          key={el.id}
+        />
       ))}
       <button
         onClick={() => {

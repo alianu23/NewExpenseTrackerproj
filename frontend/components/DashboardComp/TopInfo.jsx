@@ -4,12 +4,12 @@ import { UserContext } from "@/context/UserProvider";
 import LogoWhite from "../iconsvg/LogoWhite";
 import Shape from "../iconsvg/shape";
 import { TransactionContext } from "@/context/TransactionContext";
+import { thousandify } from "@/utils";
 
 const TopInfo = () => {
   const { userAmount } = useContext(UserContext);
   const { getSums } = useContext(TransactionContext);
-  // console.log("skbfkjabjkba", getSums);
-  // console.log("BALANCE", userAmount);
+
   return (
     <div className="flex w-full mt-6">
       <div className=" relative lg:w-1/3  w-full lg:h-64 rounded-2xl bg-blue-600 bg-[url('../Noise.png')] p-10 flex flex-col justify-between">
@@ -17,7 +17,9 @@ const TopInfo = () => {
         <div className="flex justify-between items-center">
           <div>
             <p className=" text-gray-400 text-xl">cash</p>
-            <p className="font-medium text-3xl text-white">{userAmount}</p>
+            <p className="font-medium text-3xl text-white">
+              {thousandify(userAmount + getSums?.inc - getSums?.exp)}
+            </p>
           </div>
 
           <svg
@@ -52,9 +54,9 @@ const TopInfo = () => {
           <p className="ml-1 lg:text-base">Your Income</p>
         </div>
         <div>
-          <span className="font-bold lg:text-4xl md:text-2xl text-xl">
+          <span className="font-bold text-green-500 lg:text-4xl md:text-2xl text-xl">
             {" "}
-            {getSums?.inc}
+            + {thousandify(getSums?.inc)}
           </span>
           <p className="text-xs my-2 lg:text-base md:my-3 lg:my-4 text-slate-500">
             Your Income Amount
@@ -73,9 +75,9 @@ const TopInfo = () => {
           <p className="ml-1 lg:text-base">Total Expenses</p>
         </div>
         <div>
-          <span className="font-bold lg:text-4xl md:text-2xl text-xl">
+          <span className="font-bold text-red-600 lg:text-4xl md:text-2xl text-xl">
             {" "}
-            - {getSums?.exp}
+            - {thousandify(getSums?.exp)}
           </span>
           <p className="text-xs lg:text-base lg:my-4 md:my-3 my-2 text-slate-500">
             Your Expense Amount

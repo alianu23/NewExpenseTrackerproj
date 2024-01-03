@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import { getCurrencySymbol, getIcons } from "@/utils";
+import { getCurrencySymbol, getIcons, thousandify } from "@/utils";
 
 const DataChange = ({ transaction }) => {
   // console.log("7777777", transaction.category_color);
@@ -8,7 +8,8 @@ const DataChange = ({ transaction }) => {
     <div className="border-b-2 py-6 flex justify-between items-center">
       <div className="flex items-center">
         <div
-          className={`rounded-full bg-[${transaction.category_color}] p-2 ml-4`}
+          className={`rounded-full p-2 ml-4`}
+          style={{ backgroundColor: transaction.category_color }}
         >
           {getIcons(transaction?.category_img, "white")}
         </div>
@@ -16,7 +17,7 @@ const DataChange = ({ transaction }) => {
         <div className="ml-3">
           <h2 className="font-medium">{transaction.name}</h2>
           <h3 className="text-gray-500 text-xs">
-            {moment(transaction.created_at).format("MMM Do YY")}
+            {moment(transaction.updated_at).format("MMM Do YY")}
           </h3>
         </div>
       </div>
@@ -29,7 +30,7 @@ const DataChange = ({ transaction }) => {
         } font-medium mr-4`}
       >
         {transaction.transaction_type === "EXP" ? "-" : "+"}
-        {transaction.amount}
+        {thousandify(transaction.amount)}
         {getCurrencySymbol(transaction.currency_type)}
       </h4>
     </div>

@@ -5,7 +5,7 @@ const getAllTransaction = async (req, res) => {
   // console.log("userId", userId);
   try {
     const transactions =
-      await sql`SELECT tr.name, tr.amount, tr.created_at,tr.id, tr.transaction_type, ct.category_img, ct.category_color FROM transactions tr INNER JOIN category ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} ORDER BY created_at DESC`;
+      await sql`SELECT tr.name, tr.amount, tr.updated_at,tr.id, tr.transaction_type, ct.category_img, ct.category_color FROM transactions tr INNER JOIN category ct ON tr.category_id=ct.id WHERE tr.user_id=${userId} ORDER BY updated_at DESC`;
     // console.log("TRANSACTIONS", transactions);
     res.status(200).json({ message: "success", transactions });
   } catch (error) {
@@ -74,9 +74,24 @@ const updateTransaction = async (req, res) => {
 const barChartData = async (req, res) => {
   try {
     const { userId } = req.params;
-    const data =
-      await sql`SELECT transaction_type, EXTRACT(month FROM updated_at) as month, SUM(amount) FROM transactions WHERE user_id=${userId} GROUP BY month, transaction_type`;
-    res.status(201).json({ message: "success", data });
+    const barChart = await sql`
+      SELECT 
+        EXTRACT(MONTH FROM updated_at) AS month,
+        TO_CHAR(updated_at, 'Month') AS month_name,
+        SUM(CASE WHEN transaction_type = 'INC' THEN amount ELSE 0 END) AS income,
+        SUM(CASE WHEN transaction_type = 'EXP' THEN amount ELSE 0 END) AS expense
+      FROM transactions
+      WHERE user_id=${userId}
+      GROUP BY month, month_name
+      ORDER BY month;
+      `;
+    const labels = barChart.map((e) => e.month_name);
+    const incomeData = barChart.map((e) => e.income);
+    const expenseData = barChart.map((e) => e.expense);
+    res.status(201).json({
+      message: "success",
+      barChart: { labels, incomeData, expenseData },
+    });
   } catch (error) {
     console.log(error);
   }

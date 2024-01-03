@@ -76,10 +76,10 @@ const TransactionProvider = ({ children }) => {
     console.log("getBarData");
     try {
       const {
-        data: { data },
+        data: { barChart },
       } = await axios.get("http://localhost:8008/transactions/bar/" + user.id);
-      console.log("BARCHART", data);
-      setGetBchartData(data);
+      console.log("BARCHART", barChart);
+      setGetBchartData(barChart);
     } catch (error) {
       console.log("bar chart CTX deer", error);
     }
@@ -102,10 +102,25 @@ const TransactionProvider = ({ children }) => {
     }
   };
 
+  const [selectedType, setSelectedType] = useState([]);
+
+  const onSelectType = (transaction_type) => {
+    console.log("NN", transaction_type);
+
+    if (selectedType.includes(transaction_type)) {
+      const typeTrans = selectedType.filter((s) => s !== transaction_type);
+      setSelectedType(typeTrans);
+    } else {
+      setSelectedType([...selectedType, transaction_type]);
+    }
+  };
+
   // console.log("getBars CTX", getExpBarData);
   return (
     <TransactionContext.Provider
       value={{
+        selectedType,
+        onSelectType,
         transactions,
         transactionData,
         changeTransactionData,

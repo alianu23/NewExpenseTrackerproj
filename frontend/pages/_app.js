@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
       <StepProvider>
         <TransactionProvider>
           <CategoryProvider>
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
             <ToastContainer />
           </CategoryProvider>
         </TransactionProvider>

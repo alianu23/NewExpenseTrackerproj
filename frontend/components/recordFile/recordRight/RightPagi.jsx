@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { DashArrow } from "@/components/iconsvg";
+import { thousandify } from "@/utils";
+import { UserContext } from "@/context/UserProvider";
+import { TransactionContext } from "@/context/TransactionContext";
 
 const RightPagiTop = () => {
+  const { userAmount } = useContext(UserContext);
+  const { getSums } = useContext(TransactionContext);
   const [changeDate, setChange] = useState(1);
 
   const dates = [
@@ -47,7 +52,9 @@ const RightPagiTop = () => {
           <input type="checkbox" checked="" className="checkbox ml-3" />
           <h2 className="font-medium">Select all</h2>
         </div>
-        <h4 className="text-gray-500 font-semibold">- 35,000₮</h4>
+        <h4 className="text-gray-500 font-semibold">
+          {thousandify(userAmount + getSums?.inc - getSums?.exp)}
+        </h4>
       </div>
     </div>
   );

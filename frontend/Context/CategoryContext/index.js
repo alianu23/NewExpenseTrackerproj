@@ -45,6 +45,19 @@ const CategoryProvider = ({ children }) => {
     }
   };
 
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const onSelectCategory = (category_img) => {
+    console.log("NN", category_img);
+
+    if (selectedCategories.includes(category_img)) {
+      const newCat = selectedCategories.filter((s) => s !== category_img);
+      setSelectedCategories(newCat);
+    } else {
+      setSelectedCategories([...selectedCategories, category_img]);
+    }
+  };
+
   const getCategories = async () => {
     const {
       data: { categories },
@@ -67,6 +80,8 @@ const CategoryProvider = ({ children }) => {
   return (
     <CategoryContext.Provider
       value={{
+        selectedCategories,
+        onSelectCategory,
         deleteCategories,
         inputValue,
         getCategories,
