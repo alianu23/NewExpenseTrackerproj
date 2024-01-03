@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
-import { UserContext } from "@/context/UserProvider";
+// import { UserContext } from "@/context/UserProvider";
 
-const Profile = () => {
+const Profile = ({ logout }) => {
   const route = useRouter();
-  const { logout } = useContext(UserContext);
 
   return (
     <div className="dropdown dropdown-end">

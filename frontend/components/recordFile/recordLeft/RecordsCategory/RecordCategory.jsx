@@ -1,10 +1,8 @@
 import { Arrow } from "@/components/iconsvg";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import React, { useContext, useEffect } from "react";
+import React from "react";
 
 const RecordCategory = ({ data, selectedCategories, onSelectCategory }) => {
-  // const { deleteCategories } = useContext(CategoryContext);
-
   return (
     <div className="flex my-3 items-center justify-between">
       <div className="flex items-center gap-3">

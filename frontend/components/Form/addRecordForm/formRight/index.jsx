@@ -7,7 +7,6 @@ const FormRight = () => {
 
   return (
     <div className="ml-5">
-      {" "}
       <h1 className="mt-4 mb-2">Name</h1>
       <input
         type="text"

@@ -13,7 +13,7 @@ const navigations = [
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
 
   const closeForm = () => {
     setOpen(false);
@@ -67,7 +67,7 @@ const Header = () => {
           </div>
 
           {open && <RecordForm open={open} closeForm={closeForm} />}
-          <Profile />
+          <Profile logout={logout} />
         </div>
       </div>
     </div>

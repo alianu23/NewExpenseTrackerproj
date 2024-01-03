@@ -4,14 +4,14 @@ import { DashArrow } from "@/components/iconsvg";
 
 import RecordIcons from "./RecordIcons";
 import { TransactionContext } from "@/context/TransactionProvider";
-import { CategoryContext } from "../../../../context/CategoryProvider";
+import { CategoryContext } from "@/context/CategoryProvider";
 import CatIcon from "./CatIcon";
 
 const FormLeft = ({ closeForm }) => {
   const [closeIcon, setCloseIcon] = useState(true);
   const { transactionData, changeTransactionData, addTransaction } =
     useContext(TransactionContext);
-  const { getCategories } = useContext(CategoryContext);
+  const { getCategories, category } = useContext(CategoryContext);
 
   const [selectedCat, setSelectedCat] = useState(null);
 
@@ -88,6 +88,7 @@ const FormLeft = ({ closeForm }) => {
 
           <ul className="shadow menu w-full dropdown-content z-[1] bg-base-100 rounded-box">
             <RecordIcons
+              category={category}
               changeTransactionData={changeTransactionData}
               setSelectedCat={setSelectedCat}
             />

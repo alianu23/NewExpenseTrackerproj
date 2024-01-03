@@ -56,6 +56,7 @@ const TransactionProvider = ({ children }) => {
       console.log("Record denied");
     }
   };
+
   const [getSums, setGetSums] = useState();
 
   const getSum = async () => {
@@ -114,6 +115,13 @@ const TransactionProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    getAllTransaction();
+    getBarData();
+    getSum();
+    getDoughnutData();
+  }, []);
+
   // console.log("getBars CTX", getExpBarData);
   return (
     <TransactionContext.Provider
@@ -130,7 +138,7 @@ const TransactionProvider = ({ children }) => {
         reFetch,
         setReFetch,
         getBarData,
-        getDoughnutData,
+
         getDoughnuts,
         getBchartData,
       }}

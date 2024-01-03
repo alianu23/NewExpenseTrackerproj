@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
-
-import { CategoryContext } from "../../../../context/CategoryProvider";
+import React from "react";
 import CatIcon from "./CatIcon";
 
-const RecordIcons = ({ changeTransactionData, setSelectedCat }) => {
-  const { category } = useContext(CategoryContext);
+const RecordIcons = ({ changeTransactionData, setSelectedCat, category }) => {
   return (
     <div>
       {category.map((el) => (
