@@ -5,7 +5,7 @@ import { DashArrow } from "@/components/iconsvg";
 import CategoryForm from "../../addCategoryForm";
 
 import RecordIcons from "./RecordIcons";
-import { TransactionContext } from "../../../..//context/TransactionContext";
+import { TransactionContext } from "../../../../context/TransactionContext";
 import { CategoryContext } from "../../../../context/CategoryContext";
 import CatIcon from "./CatIcon";
 
