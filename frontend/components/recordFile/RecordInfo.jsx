@@ -4,7 +4,6 @@ import RecordBig from "./recordLeft/RecordsCategory/RecordBig";
 import Range from "./recordLeft/recordBottom/Range";
 import RightPagiTop from "./recordRight/RightPagi";
 import BottomRecord from "./recordRight/BottomPart/BottomRecord";
-import { TransactionContext } from "@/context/TransactionContext";
 
 const RecordInfo = () => {
   return (

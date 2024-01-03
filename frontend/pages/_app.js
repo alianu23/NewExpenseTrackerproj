@@ -10,12 +10,12 @@ export default function App({ Component, pageProps }) {
   return (
     <UserProvider>
       <StepProvider>
-        <TransactionProvider>
-          <CategoryProvider>
+        <CategoryProvider>
+          <TransactionProvider>
             <Component {...pageProps} />
             <ToastContainer />
-          </CategoryProvider>
-        </TransactionProvider>
+          </TransactionProvider>
+        </CategoryProvider>
       </StepProvider>
     </UserProvider>
   );

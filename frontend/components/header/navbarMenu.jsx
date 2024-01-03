@@ -5,6 +5,7 @@ import { UserContext } from "@/context/UserProvider";
 const Profile = () => {
   const route = useRouter();
   const { logout } = useContext(UserContext);
+
   return (
     <div className="dropdown dropdown-end">
       <div

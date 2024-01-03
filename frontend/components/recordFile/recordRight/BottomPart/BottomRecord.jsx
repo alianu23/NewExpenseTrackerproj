@@ -5,8 +5,7 @@ import DataChange from "./DataChange";
 import { CategoryContext } from "@/context/CategoryContext";
 
 const BottomRecord = () => {
-  const { transactions, selectedType, onSelectType } =
-    useContext(TransactionContext);
+  const { transactions } = useContext(TransactionContext);
   const { selectedCategories } = useContext(CategoryContext);
   console.log("first");
   const fileredTransactions =

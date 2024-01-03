@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { DefLogo } from "../logo/Logo";
 import RecordForm from "@/components/Form/addRecordForm";
 import Profile from "./navbarMenu";
+import { UserContext } from "@/context/UserProvider";
 
 const navigations = [
   { name: "Dashboard", path: "/" },
@@ -12,6 +13,7 @@ const navigations = [
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const { user } = useContext(UserContext);
 
   const closeForm = () => {
     setOpen(false);
@@ -61,7 +63,7 @@ const Header = () => {
           </button>
           <div>
             <p className="text-slate-400">Hello</p>
-            <p className="font-semibold">{user.name}</p>
+            <p className="font-semibold">{user?.name}</p>
           </div>
 
           {open && <RecordForm open={open} closeForm={closeForm} />}

@@ -10,7 +10,6 @@ import {
   LinearScale,
 } from "chart.js";
 import { TransactionContext } from "@/context/TransactionContext";
-import { keys } from "@mui/system";
 
 Chart.register(CategoryScale, LinearScale, BarElement, ArcElement, Legend);
 

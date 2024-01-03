@@ -2,7 +2,7 @@ import axios from "axios";
 import myAxios from "../../utils/axios";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
 
