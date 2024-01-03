@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { FaPlusCircle } from "react-icons/fa";
 import { DashArrow } from "@/components/iconsvg";
-import CategoryForm from "../../addCategoryForm";
 
 import RecordIcons from "./RecordIcons";
 import { TransactionContext } from "@/context/TransactionProvider";
-import { CategoryContext } from "@/context/CategoryProvider";
+import { CategoryContext } from "../../../../context/CategoryProvider";
 import CatIcon from "./CatIcon";
 
 const FormLeft = ({ closeForm }) => {

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { DashArrow } from "@/components/iconsvg";
 import { icons, colors } from "@/utils";
-import { CategoryContext } from "@/context/CategoryProvider";
+import { CategoryContext } from "../../../context/CategoryProvider";
 
 const CategoryForm = ({ open, closeForm }) => {
   const {
