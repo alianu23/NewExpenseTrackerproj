@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { LogoBalance } from "../logo/LogoSteps";
-import { StepContext } from "@/context/StepContext";
+import { StepContext } from "@/context/StepProvider";
 
 const Balance = () => {
   const { changeStepData, stepData } = useContext(StepContext);

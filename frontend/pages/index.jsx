@@ -4,7 +4,7 @@ import Header from "@/components/header";
 import TopInfo from "@/components/dashboardComp/TopInfo";
 import MiddleInfo from "@/components/dashboardComp/middleChartPart/MiddleInfo";
 import BottomInfo from "@/components/dashboardComp/bottom/BottomInfo";
-import { TransactionContext } from "@/context/TransactionContext";
+import { TransactionContext } from "@/context/TransactionProvider";
 
 export default function Home() {
   const { getAllTransaction, reFetch, getSum, getBarData, getDoughnutData } =

@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import Checkbox from "./Checkbox";
 import RecordForm from "@/components/form/addRecordForm";
 import { CheckboxIncExp } from "@/components/Data";
-import { TransactionContext } from "@/context/TransactionContext";
+import { TransactionContext } from "@/context/TransactionProvider";
 
 const RecordSmall = () => {
   const [open, setOpen] = useState(false);

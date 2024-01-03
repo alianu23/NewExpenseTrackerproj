@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import Header from "@/components/header";
 import RecordInfo from "@/components/recordFile/RecordInfo";
-import { TransactionContext } from "@/context/TransactionContext";
-import { CategoryContext } from "@/context/CategoryContext";
+import { TransactionContext } from "@/context/TransactionProvider";
+import { CategoryContext } from "@/context/CategoryProvider";
 
 const Records = () => {
   // const { getAllTransaction, reFetch } = useContext(TransactionContext);

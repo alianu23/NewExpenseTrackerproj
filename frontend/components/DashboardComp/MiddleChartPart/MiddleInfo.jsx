@@ -9,7 +9,7 @@ import {
   Legend,
   LinearScale,
 } from "chart.js";
-import { TransactionContext } from "@/context/TransactionContext";
+import { TransactionContext } from "@/context/TransactionProvider";
 
 Chart.register(CategoryScale, LinearScale, BarElement, ArcElement, Legend);
 

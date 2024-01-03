@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { LogoCurrency } from "../logo/LogoSteps";
-import { StepContext } from "@/context/StepContext";
+import { StepContext } from "@/context/StepProvider";
 
 const Currency = () => {
   const { changeStepData } = useContext(StepContext);

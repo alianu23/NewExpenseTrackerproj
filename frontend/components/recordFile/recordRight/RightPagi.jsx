@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { DashArrow } from "@/components/iconsvg";
 import { thousandify } from "@/utils";
 import { UserContext } from "@/context/UserProvider";
-import { TransactionContext } from "@/context/TransactionContext";
+import { TransactionContext } from "@/context/TransactionProvider";
 
 const RightPagiTop = () => {
   const { userAmount } = useContext(UserContext);

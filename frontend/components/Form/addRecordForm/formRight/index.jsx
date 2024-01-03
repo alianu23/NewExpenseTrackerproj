@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TransactionContext } from "@/context/TransactionContext";
+import { TransactionContext } from "@/context/TransactionProvider";
 
 const FormRight = () => {
   const { transactionData, changeTransactionData } =

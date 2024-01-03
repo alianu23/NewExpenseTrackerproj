@@ -3,7 +3,7 @@ import { IconOne, IconTwo, IconThree, IconFour } from "../iconsvg";
 import { UserContext } from "@/context/UserProvider";
 import LogoWhite from "../iconsvg/LogoWhite";
 import Shape from "../iconsvg/shape";
-import { TransactionContext } from "@/context/TransactionContext";
+import { TransactionContext } from "@/context/TransactionProvider";
 import { thousandify } from "@/utils";
 
 const TopInfo = () => {
