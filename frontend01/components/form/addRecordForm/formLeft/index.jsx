@@ -15,9 +15,9 @@ const FormLeft = ({ closeForm }) => {
 
   const [selectedCat, setSelectedCat] = useState(null);
 
-  // const closeForm = () => {
-  //   setOpen(false);
-  // };
+  const closeDropdown = () => {
+    setCloseIcon(false);
+  };
 
   const addRecord = async () => {
     await addTransaction();
@@ -69,10 +69,7 @@ const FormLeft = ({ closeForm }) => {
           />
         </div>
         <h1 className="mt-4 mb-2 font-semibold">Category</h1>
-        <details
-          onChange={closeIcon}
-          className="dropdown dropdown-content w-full"
-        >
+        <details className="dropdown dropdown-content w-full">
           <summary className="m-1 flex items-center bg-[#F9FAFB] justify-between btn ">
             <div className="flex justify-between items-center w-full">
               {!selectedCat && "Find or Choose category"}
