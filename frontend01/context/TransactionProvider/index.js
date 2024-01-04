@@ -115,13 +115,6 @@ const TransactionProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    getAllTransaction();
-    getBarData();
-    getSum();
-    getDoughnutData();
-  }, []);
-
   // console.log("getBars CTX", getExpBarData);
   return (
     <TransactionContext.Provider
@@ -132,15 +125,12 @@ const TransactionProvider = ({ children }) => {
         transactionData,
         changeTransactionData,
         addTransaction,
-        getAllTransaction,
         getSum,
         getSums,
         reFetch,
         setReFetch,
         getBarData,
         getAllTransaction,
-        getBarData,
-        getSum,
         getDoughnutData,
         getDoughnuts,
         getBchartData,
