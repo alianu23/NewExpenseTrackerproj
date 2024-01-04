@@ -11,10 +11,10 @@ const TopInfo = () => {
   const { getSums } = useContext(TransactionContext);
 
   return (
-    <div className="flex lg-flex-row flex-col items-center w-full mt-6">
-      <div className=" relative lg:w-1/3  w-full lg:h-64 rounded-2xl bg-blue-600 bg-[url('../Noise.png')] p-10 flex flex-col justify-between">
+    <div className="lg:flex-row md:flex-row flex flex-col items-center w-full mt-6 gap-3">
+      <div className="lg:flex-1 relative w-full lg:h-64 rounded-2xl bg-blue-600 bg-[url('../Noise.png')] p-10 flex flex-col justify-between">
         <LogoWhite />
-        <div className="flex justify-between items-center">
+        <div>
           <div>
             <p className=" text-gray-400 text-xl">cash</p>
             <p className="font-medium text-3xl text-white">
@@ -48,7 +48,7 @@ const TopInfo = () => {
           <Shape />
         </div>
       </div>
-      <div className="lg-flex-1 w-full lg-ml-7 lg:mt-0 mt-3 p-4 bg-white rounded-2xl">
+      <div className="lg:flex-1 md:flex-1 w-full lg:h-64 l p-4 bg-white rounded-2xl">
         <div className="flex items-center border-b-2 mb-3 pb-2 text-xs">
           <IconTwo />
           <p className="ml-1 lg:text-base">Your Income</p>
@@ -69,7 +69,7 @@ const TopInfo = () => {
           </div>
         </div>
       </div>
-      <div className="lg-flex-1 w-full lg-ml-7 lg:mt-0 mt-3 p-4 bg-white rounded-2xl">
+      <div className="lg:flex-1 md:flex-1 w-full lg:h-64  ml-0 p-4 bg-white rounded-2xl">
         <div className="flex items-center border-b-2 mb-3 pb-2 text-xs">
           <IconFour />
           <p className="ml-1 lg:text-base">Total Expenses</p>

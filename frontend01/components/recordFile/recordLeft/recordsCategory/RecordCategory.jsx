@@ -18,18 +18,8 @@ const RecordCategory = ({ data, selectedCategories, onSelectCategory }) => {
         }
         <h2>{data}</h2>
       </div>
-      <div className="dropdown dropdown-hover">
-        <div tabIndex={0} role="button">
-          <Arrow />
-        </div>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li>
-            <a> Delete</a>
-          </li>
-        </ul>
+      <div>
+        <Arrow />
       </div>
     </div>
   );

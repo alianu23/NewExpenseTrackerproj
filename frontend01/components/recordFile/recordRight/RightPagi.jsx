@@ -28,7 +28,7 @@ const RightPagiTop = () => {
 
   return (
     <div className="">
-      <div className=" flex justify-between mb-5">
+      <div className="flex lg:flex-row flex-col gap-3 justify-between mb-5">
         <div className="flex items-center">
           <button onClick={prev} className="btn bg-[#E5E7EB]">
             next
@@ -42,7 +42,7 @@ const RightPagiTop = () => {
             prev
           </button>
         </div>
-        <div className="flex gap-10 rounded-md border-[1px] px-3 items-center bg-[#F9FAFB]">
+        <div className="flex gap-10 rounded-md border-[1px] px-3 w-full justify-between items-center bg-[#F9FAFB]">
           <button className="bg-[#F9FAFB]"> Newest first</button>
           <DashArrow />
         </div>

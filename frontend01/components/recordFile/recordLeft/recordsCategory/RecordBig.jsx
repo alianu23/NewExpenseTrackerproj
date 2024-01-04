@@ -15,7 +15,7 @@ const RecordBig = () => {
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between w-full">
         <h1>Category</h1>
         <h1 className="text-slate-400">Clear</h1>
       </div>
@@ -31,7 +31,7 @@ const RecordBig = () => {
         onClick={() => {
           setOpen(true);
         }}
-        className="btn btn-active bg-white border-white text-black w-full  rounded-full"
+        className="btn btn-active bg-white border-white text-black w-full text-xs lg:text-base rounded-full"
       >
         <svg
           width="16"

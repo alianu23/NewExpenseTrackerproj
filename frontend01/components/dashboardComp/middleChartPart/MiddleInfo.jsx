@@ -77,7 +77,7 @@ const MiddleInfo = () => {
   };
 
   return (
-    <div className="w-full grid lg-grid-cols-2 grid-cols-1 my-10 gap-9">
+    <div className="w-full grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 my-10 gap-9">
       <div className="bg-white rounded-2xl overflow-hidden">
         <div className="flex items-center gap-2 font-bold p-4 border-b-[1px]">
           <span>Income - Expense</span>

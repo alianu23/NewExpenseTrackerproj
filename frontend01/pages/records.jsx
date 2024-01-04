@@ -18,9 +18,11 @@ const Records = () => {
   }, [refresh]);
 
   return (
-    <div className="bg-[#F6F6F6] w-max">
+    <div className="bg-[#F6F6F6] w-full ">
       <Header />
-      <RecordInfo />
+      <div className="">
+        <RecordInfo />
+      </div>
     </div>
   );
 };

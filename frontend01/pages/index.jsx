@@ -18,9 +18,9 @@ export default function Home() {
   }, [reFetch]);
 
   return (
-    <div className="bg-[#F6F6F6] w-max">
+    <div className="bg-[#F6F6F6] max-w-screen-2xl">
       <Header />
-      <dashboard className={`flex flex-col items-center justify-between `}>
+      <dashboard className={`flex flex-col items-center justify-between px-3`}>
         <TopInfo />
         <MiddleInfo />
         <BottomInfo />
