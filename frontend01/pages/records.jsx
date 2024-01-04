@@ -18,7 +18,7 @@ const Records = () => {
   }, [refresh]);
 
   return (
-    <div className="bg-[#F6F6F6]">
+    <div className="bg-[#F6F6F6] w-max">
       <Header />
       <RecordInfo />
     </div>

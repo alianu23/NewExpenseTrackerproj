@@ -11,7 +11,7 @@ const TopInfo = () => {
   const { getSums } = useContext(TransactionContext);
 
   return (
-    <div className="flex w-full mt-6">
+    <div className="flex lg-flex-row flex-col items-center w-full mt-6">
       <div className=" relative lg:w-1/3  w-full lg:h-64 rounded-2xl bg-blue-600 bg-[url('../Noise.png')] p-10 flex flex-col justify-between">
         <LogoWhite />
         <div className="flex justify-between items-center">
@@ -48,7 +48,7 @@ const TopInfo = () => {
           <Shape />
         </div>
       </div>
-      <div className="flex-1 ml-7 p-4 bg-white rounded-2xl">
+      <div className="lg-flex-1 w-full lg-ml-7 lg:mt-0 mt-3 p-4 bg-white rounded-2xl">
         <div className="flex items-center border-b-2 mb-3 pb-2 text-xs">
           <IconTwo />
           <p className="ml-1 lg:text-base">Your Income</p>
@@ -69,7 +69,7 @@ const TopInfo = () => {
           </div>
         </div>
       </div>
-      <div className="flex-1 ml-7 p-4 bg-white rounded-2xl">
+      <div className="lg-flex-1 w-full lg-ml-7 lg:mt-0 mt-3 p-4 bg-white rounded-2xl">
         <div className="flex items-center border-b-2 mb-3 pb-2 text-xs">
           <IconFour />
           <p className="ml-1 lg:text-base">Total Expenses</p>

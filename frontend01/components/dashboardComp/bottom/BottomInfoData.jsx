@@ -4,7 +4,7 @@ import { getCurrencySymbol, getIcons, thousandify } from "@/utils";
 
 const Bottom = ({ transaction }) => {
   return (
-    <div className="border-b-2 py-6 flex justify-between items-center">
+    <div className="border-b-2 py-6 flex justify-between items-center w-full">
       <div className="flex items-center">
         <div
           className={`rounded-full p-2 ml-4`}

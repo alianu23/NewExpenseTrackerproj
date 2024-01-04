@@ -77,12 +77,12 @@ const MiddleInfo = () => {
   };
 
   return (
-    <div className="w-full grid grid-cols-2 my-10 gap-9">
+    <div className="w-full grid lg-grid-cols-2 grid-cols-1 my-10 gap-9">
       <div className="bg-white rounded-2xl overflow-hidden">
         <div className="flex items-center gap-2 font-bold p-4 border-b-[1px]">
           <span>Income - Expense</span>
         </div>
-        <div className="card bg-white flex justify-center items-center p-4">
+        <div className="card bg-white flex justify-center w-full h-full items-center p-4">
           <Bar data={data1} options={options1} />
         </div>
       </div>

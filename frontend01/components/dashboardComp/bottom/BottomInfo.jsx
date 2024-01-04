@@ -8,7 +8,7 @@ const BottomInfo = () => {
 
   return (
     <div className="w-full rounded-xl mb-6 bg-white ">
-      <h1 className="border-b-2 py-6 pl-6 font-semibold">Last Record</h1>
+      <h1 className="border-b-2 w-full py-6 pl-6 font-semibold">Last Record</h1>
       {transactions?.map((transaction) => (
         <Bottom transaction={transaction} key={transaction.id} />
       ))}

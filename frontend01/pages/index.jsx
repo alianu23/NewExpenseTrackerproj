@@ -18,15 +18,13 @@ export default function Home() {
   }, [reFetch]);
 
   return (
-    <div className="bg-[#F6F6F6]">
+    <div className="bg-[#F6F6F6] w-max">
       <Header />
-      <main
-        className={`flex container mx-auto min-h-screen flex-col items-center justify-between `}
-      >
+      <dashboard className={`flex flex-col items-center justify-between `}>
         <TopInfo />
         <MiddleInfo />
         <BottomInfo />
-      </main>
+      </dashboard>
     </div>
   );
 }
