@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { DefLogo } from "../logo/LogoW3";
+import Logo from "../logo/LogoW3";
 import RecordForm from "@/components/form/addRecordForm";
 import Profile from "./navbarMenu";
 import { UserContext } from "@/context/UserProvider";
@@ -22,13 +22,13 @@ const Header = () => {
   const isActive = usePathname();
 
   return (
-    <div className=" bg-white">
+    <div className=" bg-white dark:bg-slate-800">
       <div className="flex lg:flex-row md:flex-row justify-between flex-col-reverse items-center px-6 container mx-auto py-3">
         <div className="lg:flex-1 flex items-center gap-3">
-          <DefLogo />
+          <Logo />
           {navigations.map((navigation, i) => (
             <Link
-              className={`transition-all duration-75 ${
+              className={`transition-all duration-75 dark:text-white ${
                 isActive === navigation.path
                   ? "font-semibold"
                   : "hover:font-semibold "
@@ -63,10 +63,10 @@ const Header = () => {
               Record
             </button>
           </div>
-          <div className="flex">
-            <div>
-              <p className="text-slate-400">Hello</p>
-              <p className="font-semibold">{user?.name}</p>
+          <div className="flex gap-3">
+            <div className="flex flex-col items-center">
+              <p className="text-slate-400 dark:text-slate-300">Hello</p>
+              <p className="font-semibold dark:text-white">{user?.name}</p>
             </div>
 
             <Profile logout={logout} />

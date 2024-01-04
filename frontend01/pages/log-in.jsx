@@ -10,10 +10,16 @@ export default function LogIn() {
 
   return (
     <div className="flex w-screen h-screen">
-      <div className="lg:flex-1 w-full flex flex-col items-center justify-center bg-white gap-3">
-        <Logo />
-        <h3 className="font-semibold text-xl ">Welcome Back</h3>
-        <p className="text-[#334155]">
+      <div className="lg:flex-1 w-full flex flex-col items-center justify-center bg-white dark:bg-slate-800 gap-3">
+        <div className="flex items-center justify-center">
+          <Logo />
+          <h1 className="font-bold text-2xl mr-12 text-black dark:text-white">
+            Geld
+          </h1>
+        </div>
+
+        <h3 className="font-semibold dark:text-white text-xl ">Welcome Back</h3>
+        <p className="text-[#334155] dark:text-slate-400">
           Welcome back, Please enter your details
         </p>
         <input
@@ -23,7 +29,7 @@ export default function LogIn() {
           onChange={(e) => {
             changeFormUserData(e.target.name, e.target.value);
           }}
-          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full mt-6 max-w-xs"
+          className="input input-bordered dark:text-black bg-[#F3F4F6] border-neutral-200 w-full mt-6 max-w-xs"
           value={formUserData.email}
         />
         <input
@@ -33,7 +39,7 @@ export default function LogIn() {
           onChange={(e) => {
             changeFormUserData(e.target.name, e.target.value);
           }}
-          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
+          className="input input-bordered dark:text-black bg-[#F3F4F6] border-neutral-200 w-full max-w-xs"
           onKeyUp={(e) => {
             if (e.code === "Enter") {
               login();
@@ -43,21 +49,23 @@ export default function LogIn() {
         <button
           disabled={loading}
           onClick={login}
-          className="btn btn-primary w-full max-w-xs text-lg text-white font-normal rounded-full"
+          className="btn btn-primary w-full max-w-xs text-lg text-white dark:bg-[#0167ffdf] font-normal rounded-full"
         >
           Log in
         </button>
         <div className="flex gap-2 mt-7">
-          <h3 className="text-[#334155]">Don't have an account?</h3>
+          <h3 className="text-[#334155] dark:text-slate-400">
+            Don't have an account?
+          </h3>
           <button
-            className="text-[#0166FF]"
+            className="text-[#0166FF] dark:text-[#0167ffdf]"
             onClick={() => router.push("/sign-up")}
           >
             Sign up
           </button>
         </div>
       </div>
-      <div className="lg:flex-1 w-0 bg-[#0166FF] "></div>
+      <div className="lg:flex-1 w-0 bg-[#0166FF] dark:bg-[#0167ffdf]"></div>
     </div>
   );
 }

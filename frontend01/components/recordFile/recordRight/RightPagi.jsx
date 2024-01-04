@@ -30,29 +30,42 @@ const RightPagiTop = () => {
     <div className="">
       <div className="flex lg:flex-row flex-col gap-3 justify-between mb-5">
         <div className="flex items-center">
-          <button onClick={prev} className="btn bg-[#E5E7EB]">
+          <button
+            onClick={prev}
+            className="btn bg-[#F9FAFB] dark:text-slate-700"
+          >
             next
           </button>
-          <p className="mx-3">
+          <p className="mx-3 dark:text-white">
             {dates.map((e) => (
               <p key={e.date}>{e.date}</p>
             ))}
           </p>
-          <button onClick={next} className="btn bg-[#E5E7EB]">
+          <button
+            onClick={next}
+            className="btn bg-[#F9FAFB] dark:text-slate-700"
+          >
             prev
           </button>
         </div>
-        <div className="flex gap-10 rounded-md border-[1px] px-3 w-full justify-between items-center bg-[#F9FAFB]">
-          <button className="bg-[#F9FAFB]"> Newest first</button>
+        <div className="flex gap-10 rounded-md border-[1px] px-3 justify-between items-center bg-[#F9FAFB]">
+          <button className="bg-[#F9FAFB] dark:text-slate-800">
+            {" "}
+            Newest first
+          </button>
           <DashArrow />
         </div>
       </div>
       <div className="bg-white px-4 py-2 flex rounded-xl justify-between border-[1px] items-center">
         <div className="flex items-center gap-3">
-          <input type="checkbox" checked="" className="checkbox ml-3" />
-          <h2 className="font-medium">Select all</h2>
+          <input
+            type="checkbox"
+            checked=""
+            className="checkbox dark:bg-slate-300 ml-3"
+          />
+          <h2 className="font-medium dark:text-slate-800">Select all</h2>
         </div>
-        <h4 className="text-gray-500 font-semibold">
+        <h4 className="text-gray-500 dark:text-slate-800 font-semibold">
           {thousandify(userAmount + getSums?.inc - getSums?.exp)}
         </h4>
       </div>

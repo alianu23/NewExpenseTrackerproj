@@ -19,7 +19,7 @@ const BottomRecord = () => {
   return (
     <>
       <div>
-        <h1 className="my-4 font-semibold">Today</h1>
+        <h1 className="my-4 font-semibold dark:text-slate-100">Today</h1>
         {fileredTransactions?.map((transaction) => (
           <DataChange transaction={transaction} key={transaction.id} />
         ))}

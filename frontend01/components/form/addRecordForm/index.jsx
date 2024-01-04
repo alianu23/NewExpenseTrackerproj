@@ -5,9 +5,9 @@ import FormRight from "./formRight";
 const RecordForm = ({ open, closeForm }) => {
   return (
     <dialog className="modal" open={open}>
-      <div className="modal-box  flex flex-col max-w-3xl shadow-2xl">
-        <div className="flex justify-between border-b-2 pb-3">
-          <h1>Add Record</h1>
+      <div className="modal-box  flex flex-col dark:bg-slate-700 max-w-3xl shadow-2xl">
+        <div className="flex justify-between border-b-2 dark:border-slate-300 pb-3">
+          <h1 className="dark:text-slate-50">Add Record</h1>
           <button onClick={closeForm} className="hover:font-medium">
             X
           </button>

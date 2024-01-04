@@ -16,22 +16,25 @@ const RecordBig = () => {
   return (
     <div>
       <div className="flex justify-between w-full">
-        <h1>Category</h1>
-        <h1 className="text-slate-400">Clear</h1>
+        <h1 className="dark:text-slate-300">Category</h1>
+        <h1 className="text-slate-400 dark:text-slate-300">Clear</h1>
       </div>
-      {category.map((el) => (
-        <RecordCategory
-          selectedCategories={selectedCategories}
-          onSelectCategory={onSelectCategory}
-          data={el.category_img}
-          key={el.id}
-        />
-      ))}
+      <div className="dark:text-slate-100">
+        {category.map((el) => (
+          <RecordCategory
+            selectedCategories={selectedCategories}
+            onSelectCategory={onSelectCategory}
+            data={el.category_img}
+            key={el.id}
+          />
+        ))}
+      </div>
+
       <button
         onClick={() => {
           setOpen(true);
         }}
-        className="btn btn-active bg-white border-white text-black w-full text-xs lg:text-base rounded-full"
+        className="btn btn-active my-5 bg-slate-200 dark:bg-slate-100 dark:hover:bg-[#0166FF] dark:hover:text-white border-white text-black w-full text-xs lg:text-base rounded-full"
       >
         <svg
           width="16"

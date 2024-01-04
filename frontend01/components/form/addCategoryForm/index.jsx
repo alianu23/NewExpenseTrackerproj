@@ -16,10 +16,12 @@ const CategoryForm = ({ open, closeForm }) => {
   } = useContext(CategoryContext);
   return (
     <dialog className="modal" open={open}>
-      <div className="modal-box flex flex-col max-w-lg shadow-2xl">
-        <div className="flex justify-between border-b-2 pb-3">
-          <h1 className="font-semibold">Add Category</h1>
-          <button onClick={closeForm}>X</button>
+      <div className="modal-box flex flex-col max-w-lg dark:bg-slate-700 shadow-2xl">
+        <div className="flex justify-between border-b-2 dark:border-slate-300 pb-3">
+          <h1 className="font-semibold dark:text-slate-50">Add Category</h1>
+          <button className="dark:text-slate-50" onClick={closeForm}>
+            X
+          </button>
         </div>
         <div className="flex items-center my-5">
           <details className="dropdown">
@@ -68,8 +70,15 @@ const CategoryForm = ({ open, closeForm }) => {
               value={inputValue}
               type="text"
               placeholder="Name"
-              className="bg-base-200 w-full "
+              className="bg-base-200 w-full dark:text-slate-50"
               onChange={handleChange}
+              onKeyUp={(e) => {
+                if (e.code === "Enter") {
+                  createCategory();
+                  setInputValue("");
+                  closeForm();
+                }
+              }}
             />
           </div>
         </div>

@@ -48,13 +48,13 @@ const TopInfo = () => {
           <Shape />
         </div>
       </div>
-      <div className="lg:flex-1 md:flex-1 w-full lg:h-64 l p-4 bg-white rounded-2xl">
-        <div className="flex items-center border-b-2 mb-3 pb-2 text-xs">
+      <div className="lg:flex-1 md:flex-1 w-full lg:h-64 l p-4 bg-white dark:bg-slate-300 rounded-2xl">
+        <div className="flex items-center border-b-2 mb-3 pb-2 text-xs dark:border-slate-400">
           <IconTwo />
-          <p className="ml-1 lg:text-base">Your Income</p>
+          <p className="ml-1 lg:text-base dark:text-slate-500">Your Income</p>
         </div>
         <div>
-          <span className="font-bold text-green-500 lg:text-4xl md:text-2xl text-xl">
+          <span className="font-bold text-green-500 dark:text-green-600 lg:text-4xl md:text-2xl text-xl">
             {" "}
             + {thousandify(getSums?.inc)}
           </span>
@@ -63,19 +63,21 @@ const TopInfo = () => {
           </p>
           <div className="flex items-center">
             <IconOne />
-            <span className="ml-1 lg:text-base text-xs">
+            <span className="ml-1 lg:text-base text-xs dark:text-slate-500">
               32% from last month
             </span>
           </div>
         </div>
       </div>
-      <div className="lg:flex-1 md:flex-1 w-full lg:h-64  ml-0 p-4 bg-white rounded-2xl">
-        <div className="flex items-center border-b-2 mb-3 pb-2 text-xs">
+      <div className="lg:flex-1 md:flex-1 w-full lg:h-64  ml-0 p-4 bg-white dark:bg-slate-300 rounded-2xl">
+        <div className="flex items-center border-b-2 mb-3 pb-2 text-xs dark:border-slate-400">
           <IconFour />
-          <p className="ml-1 lg:text-base">Total Expenses</p>
+          <p className="ml-1 lg:text-base dark:text-slate-500">
+            Total Expenses
+          </p>
         </div>
         <div>
-          <span className="font-bold text-red-600 lg:text-4xl md:text-2xl text-xl">
+          <span className="font-bold text-red-600 dark:text-red-700 lg:text-4xl md:text-2xl text-xl">
             {" "}
             - {thousandify(getSums?.exp)}
           </span>
@@ -84,7 +86,7 @@ const TopInfo = () => {
           </p>
           <div className="flex items-center ">
             <IconThree />
-            <span className="ml-1 lg:text-base text-xs">
+            <span className="ml-1 lg:text-base text-xs dark:text-slate-500">
               32% from last month
             </span>
           </div>

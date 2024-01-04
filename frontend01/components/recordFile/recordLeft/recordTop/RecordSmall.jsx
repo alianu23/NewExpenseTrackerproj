@@ -17,12 +17,14 @@ const RecordSmall = () => {
   return (
     <div className="flex lg:flex-col md:flex-col flex-row w-full">
       <div>
-        <h1 className="mb-8 font-semibold text-3xl">Records</h1>
+        <h1 className="mb-8 font-semibold text-3xl dark:text-slate-100 ">
+          Records
+        </h1>
         <button
           onClick={() => {
             setOpen(true);
           }}
-          className="btn bg-[#0166FF] w-full font-normal mb-4 text-white rounded-full"
+          className="btn btn-active bg-[#0166FF] w-full font-normal mb-4 text-white text-xs lg:text-base rounded-full dark:hover:bg-white dark:hover:text-black"
         >
           <svg
             width="16"
@@ -43,19 +45,23 @@ const RecordSmall = () => {
         <input
           type="text"
           placeholder="Search"
-          className="input input-bordered bg-[#F3F4F6] border-neutral-200 w-full"
+          className="input input-bordered bg-[#F3F4F6] border-neutral-200 dark:text-black w-full"
         />
       </div>
       <div className="my-5 ">
-        <h1 className="font-semibold text-slate-700">Types</h1>
-        {CheckboxIncExp.map((el) => (
-          <Checkbox
-            selectedType={selectedType}
-            onSelectType={onSelectType}
-            name={el.name}
-            key={el.id}
-          />
-        ))}
+        <h1 className="font-semibold text-slate-700 dark:text-slate-300">
+          Types
+        </h1>
+        <div className="dark:text-slate-100">
+          {CheckboxIncExp.map((el) => (
+            <Checkbox
+              selectedType={selectedType}
+              onSelectType={onSelectType}
+              name={el.name}
+              key={el.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

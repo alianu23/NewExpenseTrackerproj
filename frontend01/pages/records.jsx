@@ -18,9 +18,9 @@ const Records = () => {
   }, [refresh]);
 
   return (
-    <div className="bg-[#F6F6F6] w-full ">
+    <div className="bg-[#F6F6F6] dark:bg-slate-800  w-full ">
       <Header />
-      <div className="">
+      <div className="mx-auto container">
         <RecordInfo />
       </div>
     </div>

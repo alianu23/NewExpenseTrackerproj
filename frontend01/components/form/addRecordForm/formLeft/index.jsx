@@ -57,10 +57,10 @@ const FormLeft = ({ closeForm }) => {
       </div>
       <form>
         <div className="border-[1px] p-3 bg-[#F9FAFB] rounded-lg">
-          <h1>Amount</h1>
+          <h1 className="dark:text-black">Amount</h1>
           <input
             type="number"
-            className="bg-[#F9FAFB] border-none"
+            className="bg-[#F9FAFB] border-none dark:text-black"
             placeholder="$ 000,0"
             name="amount"
             onChange={(e) => {
@@ -68,10 +68,12 @@ const FormLeft = ({ closeForm }) => {
             }}
           />
         </div>
-        <h1 className="mt-4 mb-2 font-semibold">Category</h1>
+        <h1 className="mt-4 mb-2 font-semibold dark:text-slate-100">
+          Category
+        </h1>
         <details className="dropdown dropdown-content w-full">
-          <summary className="m-1 flex items-center bg-[#F9FAFB] justify-between btn ">
-            <div className="flex justify-between items-center w-full">
+          <summary className="m-1 flex items-center bg-[#F9FAFB] dark:hover:bg-slate-300 justify-between btn ">
+            <div className="flex justify-between items-center dark:hover:bg-slate-300 dark:text-black w-full">
               {!selectedCat && "Find or Choose category"}
               {selectedCat && (
                 <CatIcon
@@ -94,12 +96,14 @@ const FormLeft = ({ closeForm }) => {
         <div className="flex">
           <div className="flex-1">
             <label className="label">
-              <span className="text-base label-text">Date</span>
+              <span className="text-base label-text dark:text-slate-100">
+                Date
+              </span>
             </label>
             <input
               type="datetime-local"
               placeholder="Oct 30,2023"
-              className="w-full input input-bordered bg-[#F9FAFB]"
+              className="w-full input input-bordered dark:text-black bg-[#F9FAFB]"
               name="updated_at"
               onChange={(e) => {
                 console.log("first", e.target.value);
