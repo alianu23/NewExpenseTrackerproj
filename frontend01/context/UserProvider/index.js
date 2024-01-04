@@ -47,7 +47,7 @@ const UserProvider = ({ children }) => {
         userEmail: formUserData.email,
         userPassword: formUserData.password,
       });
-      // console.log("first", user);
+      console.log("Log in user Data", user);
       setUser(user);
       setUserAmount(user.balance);
       setUserId(user.id);
@@ -79,6 +79,11 @@ const UserProvider = ({ children }) => {
       return;
     }
 
+    if (!formUserData.email.includes("@")) {
+      toast("Wrong email, your email address must include @ symbol");
+      return;
+    }
+
     try {
       const { data } = await myAxios.post("/auth/signup", {
         name: formUserData.name,
@@ -91,7 +96,8 @@ const UserProvider = ({ children }) => {
 
       router.push("/sign-up-step");
     } catch (error) {
-      toast.error(`${error.message} aldaa garlaa`, { autoClose: 3000 });
+      console.log(`${error} - iim aldaa garlaa`);
+      toast.error(`burtguulhed aldaa garlaa`, { autoClose: 3000 });
     }
   };
 
