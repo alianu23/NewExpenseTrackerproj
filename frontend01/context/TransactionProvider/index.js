@@ -138,7 +138,10 @@ const TransactionProvider = ({ children }) => {
         reFetch,
         setReFetch,
         getBarData,
-
+        getAllTransaction,
+        getBarData,
+        getSum,
+        getDoughnutData,
         getDoughnuts,
         getBchartData,
       }}
