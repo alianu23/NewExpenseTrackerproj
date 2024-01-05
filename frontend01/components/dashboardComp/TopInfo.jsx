@@ -17,8 +17,10 @@ const TopInfo = () => {
         <div>
           <div>
             <p className=" text-gray-400 text-xl">cash</p>
+
             <p className="font-medium text-3xl text-white">
-              {thousandify(userAmount + getSums?.inc - getSums?.exp)}
+              {!getSums && userAmount}
+              {getSums && thousandify(userAmount + getSums?.inc - getSums?.exp)}
             </p>
           </div>
 
@@ -54,10 +56,14 @@ const TopInfo = () => {
           <p className="ml-1 lg:text-base dark:text-slate-500">Your Income</p>
         </div>
         <div>
-          <span className="font-bold text-green-500 dark:text-green-600 lg:text-4xl md:text-2xl text-xl">
-            {" "}
-            + {thousandify(getSums?.inc)}
-          </span>
+          {!getSums && <div className="skeleton w-32 h-14"></div>}
+          {getSums && (
+            <span className="font-bold text-green-500 dark:text-green-600 lg:text-4xl md:text-2xl text-xl">
+              {" "}
+              + {thousandify(getSums?.inc)}
+            </span>
+          )}
+
           <p className="text-xs my-2 lg:text-base md:my-3 lg:my-4 text-slate-500">
             Your Income Amount
           </p>
@@ -77,10 +83,14 @@ const TopInfo = () => {
           </p>
         </div>
         <div>
-          <span className="font-bold text-red-600 dark:text-red-700 lg:text-4xl md:text-2xl text-xl">
-            {" "}
-            - {thousandify(getSums?.exp)}
-          </span>
+          {!getSums && <div className="skeleton w-32 h-14"></div>}
+          {getSums && (
+            <span className="font-bold text-red-600 dark:text-red-700 lg:text-4xl md:text-2xl text-xl">
+              {" "}
+              - {thousandify(getSums?.exp)}
+            </span>
+          )}
+
           <p className="text-xs lg:text-base lg:my-4 md:my-3 my-2 text-slate-500">
             Your Expense Amount
           </p>

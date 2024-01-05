@@ -19,6 +19,8 @@ const MiddleInfo = () => {
   const [data, setData] = useState([null]);
   const [colorData, setColorData] = useState(["black"]);
 
+  const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+
   useEffect(() => {
     if (getDoughnuts) {
       setData(
@@ -35,12 +37,12 @@ const MiddleInfo = () => {
     datasets: [
       {
         label: "Income",
-        backgroundColor: "#22C55D",
+        backgroundColor: isDark ? "#16a34a" : "#22C55D",
         data: getBchartData?.incomeData,
       },
       {
         label: "Expense",
-        backgroundColor: "#DC2625",
+        backgroundColor: isDark ? "#b91c1c" : "#DC2625",
         data: getBchartData?.expenseData,
       },
     ],
@@ -92,8 +94,8 @@ const MiddleInfo = () => {
             Top 5 Category Income-Expense
           </span>
         </div>
-        <div className="card bg-white dark:bg-slate-300 flex flex-row justify-center items-center p-4">
-          <div className="mr-10">
+        <div className="card bg-white dark:bg-slate-300 flex lg:flex-row md:flex-row flex-col justify-center items-center p-4">
+          <div className="lg:mr-10 md:mr-1 w-44 h-44 lg:w-60 lg:h-60">
             <Doughnut options={options2} data={data2} />
           </div>
           <div className="flex-1 flex-col">
@@ -101,16 +103,16 @@ const MiddleInfo = () => {
               return (
                 <div
                   key={data.id}
-                  className="grid grid-cols-3 lg:mb-5 md:mb-4 mb-3 w-full"
+                  className="grid grid-cols-3 lg:mb-5 md:mb-3 my-2 w-full md:mr-5"
                 >
                   <div
-                    className={`w-5 h-5 rounded-full flex items-start`}
+                    className={`w-3 h-3 lg:w-5 lg:h-5 md:w-2 md:h-2 rounded-full flex items-start`}
                     style={{ backgroundColor: data.category_color }}
                   ></div>
-                  <div className="dark:text-slate-500 font-semibold ">
+                  <div className="dark:text-slate-500 lg:text-base md:text-[10px] text-xs font-semibold ">
                     {data.category_img}
                   </div>
-                  <div className="dark:text-slate-500 font-semibold flex items-end">
+                  <div className="dark:text-slate-500 lg:text-base md:text-[10px] text-xs font-semibold flex items-end">
                     {data.sum}
                   </div>
                 </div>

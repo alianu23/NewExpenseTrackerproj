@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import { StepProvider } from "@/context/StepProvider";
 import TransactionProvider from "@/context/TransactionProvider";
 import CategoryProvider from "../context/CategoryProvider";
+import { ThemeProvider } from "@/context/ThemeProvider/ThemeContext";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -12,8 +13,10 @@ export default function App({ Component, pageProps }) {
       <StepProvider>
         <CategoryProvider>
           <TransactionProvider>
-            <Component {...pageProps} />
-            <ToastContainer />
+            <ThemeProvider>
+              <Component {...pageProps} />
+              <ToastContainer />
+            </ThemeProvider>
           </TransactionProvider>
         </CategoryProvider>
       </StepProvider>
