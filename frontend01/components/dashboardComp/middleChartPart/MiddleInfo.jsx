@@ -19,7 +19,9 @@ const MiddleInfo = () => {
   const [data, setData] = useState([null]);
   const [colorData, setColorData] = useState(["black"]);
 
-  const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+  // const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+  // backgroundColor: isDark ? "#16a34a" : "#22C55D",
+  // backgroundColor: isDark ? "#b91c1c" : "#DC2625",
 
   useEffect(() => {
     if (getDoughnuts) {
@@ -37,12 +39,12 @@ const MiddleInfo = () => {
     datasets: [
       {
         label: "Income",
-        backgroundColor: isDark ? "#16a34a" : "#22C55D",
+        backgroundColor: "#22C55D",
         data: getBchartData?.incomeData,
       },
       {
         label: "Expense",
-        backgroundColor: isDark ? "#b91c1c" : "#DC2625",
+        backgroundColor: "#DC2625",
         data: getBchartData?.expenseData,
       },
     ],
