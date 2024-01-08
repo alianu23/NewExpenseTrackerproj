@@ -4,7 +4,6 @@ import Balance from "../sign-up-step/Balance";
 import Currency from "../sign-up-step/Currency";
 import Finish from "../sign-up-step/Finish";
 import { StepContext } from "@/context/StepProvider";
-import Logo from "../logo/LogoW3";
 
 const SignUpSteps = () => {
   const { step, changeStep, goToDashboard } = useContext(StepContext);
@@ -43,7 +42,20 @@ const SignUpSteps = () => {
     <div className="flex w-screen h-screen">
       <div className="flex-1 flex flex-col items-center bg-white dark:bg-slate-800 gap-3">
         <div className="flex items-center mt-10 mr-20 ml-6">
-          <Logo />
+          <svg
+            width="94"
+            height="38"
+            viewBox="5 0 2 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g filter="url(#filter0_d_0_2067)">
+              <path
+                d="M22.1294 14.0265V6.24878H14.1823V14.0265H6.23505V21.9737H14.1823V29.7515H22.1294V21.9737H30.0766V14.0265H22.1294ZM22.1294 21.8043H14.1823V14.1972H22.1294V21.8043Z"
+                fill="#0166FF"
+              />
+            </g>
+          </svg>
           <h1 className="text-2xl text-black font-semibold dark:text-white  mb-1">
             Geld
           </h1>
