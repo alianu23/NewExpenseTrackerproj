@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Logo from "../logo/LogoW3";
 import RecordForm from "@/components/form/addRecordForm";
 import Profile from "./navbarMenu";
 import { UserContext } from "@/context/UserProvider";
@@ -27,7 +26,20 @@ const Header = () => {
     <div className=" bg-white dark:bg-slate-800">
       <div className="flex lg:flex-row md:flex-row justify-between flex-col-reverse items-center px-6 container mx-auto py-3">
         <div className="lg:flex-1 flex items-center gap-3">
-          <Logo />
+          <svg
+            width="94"
+            height="38"
+            viewBox="5 0 2 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g filter="url(#filter0_d_0_2067)">
+              <path
+                d="M22.1294 14.0265V6.24878H14.1823V14.0265H6.23505V21.9737H14.1823V29.7515H22.1294V21.9737H30.0766V14.0265H22.1294ZM22.1294 21.8043H14.1823V14.1972H22.1294V21.8043Z"
+                fill="#0166FF"
+              />
+            </g>
+          </svg>
           {navigations.map((navigation, i) => (
             <Link
               className={`transition-all duration-75 dark:text-white ${

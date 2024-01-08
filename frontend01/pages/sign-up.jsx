@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
-import Logo from "@/components/logo/LogoW3";
 import { UserContext } from "@/context/UserProvider";
 
 export default function Signup() {
@@ -11,7 +10,20 @@ export default function Signup() {
     <div className="flex w-screen h-screen">
       <div className="lg:flex-1 w-full flex flex-col items-center justify-center bg-white dark:bg-slate-800 gap-3">
         <div className="mr-8">
-          <Logo />
+          <svg
+            width="94"
+            height="38"
+            viewBox="5 0 2 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g filter="url(#filter0_d_0_2067)">
+              <path
+                d="M22.1294 14.0265V6.24878H14.1823V14.0265H6.23505V21.9737H14.1823V29.7515H22.1294V21.9737H30.0766V14.0265H22.1294ZM22.1294 21.8043H14.1823V14.1972H22.1294V21.8043Z"
+                fill="#0166FF"
+              />
+            </g>
+          </svg>
         </div>
 
         <h3 className="font-semibold text-xl dark:text-white">
